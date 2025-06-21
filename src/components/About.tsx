@@ -1,8 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedCounter from './AnimatedCounter';
 import { Coffee, Award } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface AboutProps {
   setActiveSection: (section: string) => void;
@@ -16,83 +21,55 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
     },
   });
 
-  const aboutText = "I'm a passionate Data Engineer and Full-Stack Developer who transforms raw data into powerful, scalable solutions that drive business impact. With 4+ years of experience building enterprise-grade data pipelines, modern web applications, and intelligent analytics platforms, I specialize in bridging the gap between complex data challenges and elegant user experiences. From architecting cloud-native ETL frameworks that process terabytes of data to developing responsive React applications serving hundreds of thousands of users, I thrive on turning ambitious ideas into production-ready solutions. My expertise spans the entire data lifecycle from ingestion and processing to visualization and deployment, always with a focus on performance, scalability, and innovation.";
+  const textRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const aboutText = "I'm a passionate Data Engineer and Full-Stack Developer who transforms raw data into powerful, scalable solutions that drive business impact. With 4+ years of experience building enterprise-grade data pipelines, modern web applications, and intelligent analytics platforms, I specialize in bridging the gap between complex data challenges and elegant user experiences. From architecting cloud native ETL frameworks that process terabytes of data to developing responsive React applications serving hundreds of thousands of users, I thrive on turning ambitious ideas into production-ready solutions. My expertise spans the entire data lifecycle from ingestion and processing to visualization and deployment, always with a focus on performance, scalability, and innovation.";
 
   const words = aboutText.split(' ');
-  const [highlightedWords, setHighlightedWords] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isInTextSection, setIsInTextSection] = useState(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!textRef.current || !containerRef.current) return;
 
-    let scrollTimeout: NodeJS.Timeout;
+    const ctx = gsap.context(() => {
+      const spans = textRef.current?.querySelectorAll('span');
+      if (!spans) return;
 
-    const handleWheel = (e: WheelEvent) => {
-      if (!isInTextSection) return;
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top center",
+        end: "bottom center",
+        pin: true,
+        scrub: 1,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const totalWords = spans.length;
+          const currentIndex = Math.floor(progress * totalWords);
 
-      e.preventDefault();
-      
-      clearTimeout(scrollTimeout);
-      
-      if (e.deltaY > 0 && highlightedWords < words.length) {
-        // Scrolling down - highlight next words
-        setHighlightedWords(prev => Math.min(prev + 3, words.length));
-      } else if (e.deltaY < 0 && highlightedWords > 0) {
-        // Scrolling up - unhighlight previous words
-        setHighlightedWords(prev => Math.max(prev - 3, 0));
-      }
-
-      // Auto-continue if we reach the end
-      if (highlightedWords >= words.length) {
-        scrollTimeout = setTimeout(() => {
-          setIsInTextSection(false);
-          document.body.style.overflow = 'auto';
-        }, 1000);
-      }
-    };
-
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Check if we're in the middle part of the about section
-      const isInMiddle = rect.top <= 0 && rect.bottom >= windowHeight;
-      
-      if (isInMiddle && highlightedWords < words.length && !isInTextSection) {
-        setIsInTextSection(true);
-        document.body.style.overflow = 'hidden';
-      } else if (!isInMiddle && isInTextSection) {
-        setIsInTextSection(false);
-        document.body.style.overflow = 'auto';
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('scroll', handleScroll);
-
-    // Start highlighting words when in view
-    if (inView && highlightedWords === 0) {
-      const interval = setInterval(() => {
-        setHighlightedWords(prev => {
-          if (prev >= words.length) {
-            clearInterval(interval);
-            return prev;
-          }
-          return prev + 1;
-        });
-      }, 100);
-    }
+          spans.forEach((span, index) => {
+            if (index <= currentIndex) {
+              gsap.to(span, {
+                color: '#ffffff',
+                duration: 0.2,
+                ease: "power2.out"
+              });
+            } else {
+              gsap.to(span, {
+                color: '#6b7280',
+                duration: 0.2,
+                ease: "power2.out"
+              });
+            }
+          });
+        }
+      });
+    });
 
     return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('scroll', handleScroll);
-      document.body.style.overflow = 'auto';
-      clearTimeout(scrollTimeout);
+      ctx.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [inView, isInTextSection, highlightedWords, words.length]);
+  }, []);
 
   return (
     <section id="about" ref={ref} className="py-20 relative overflow-hidden">
@@ -112,28 +89,22 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto" ref={sectionRef}>
+        <div className="max-w-4xl mx-auto" ref={containerRef}>
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-gray-700 min-h-[60vh] flex items-center">
             <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg md:text-xl leading-relaxed"
+              ref={textRef}
             >
               {words.map((word, index) => (
-                <motion.span
+                <span
                   key={index}
-                  className={`inline-block mr-2 transition-all duration-300 ${
-                    index < highlightedWords 
-                      ? 'text-gray-900 dark:text-white font-medium' 
-                      : 'text-gray-400 dark:text-gray-600'
-                  }`}
-                  style={{
-                    textShadow: index < highlightedWords ? '0 0 8px rgba(139, 92, 246, 0.3)' : 'none'
-                  }}
+                  className="inline-block mr-2 text-gray-500 transition-colors duration-200"
                 >
                   {word}
-                </motion.span>
+                </span>
               ))}
             </motion.div>
           </div>
@@ -149,7 +120,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
             { end: 4, label: 'Years Experience', suffix: '+' },
             { end: 48, label: 'Projects Delivered', suffix: '' },
             { end: 100, label: 'Users Served', suffix: 'K+' },
-            { end: 1000, label: 'Cups of Coffee', suffix: '?', icon: Coffee },
+            { end: 1000, label: 'Cups of Coffee', suffix: '?', icon: Coffee, note: 'Not sure though...' },
           ].map((stat, index) => (
             <div
               key={index}
@@ -161,6 +132,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
               </div>
               <div className="text-gray-600 dark:text-gray-400 font-medium">
                 {stat.label}
+                {stat.note && <div className="text-xs text-gray-500 mt-1">{stat.note}</div>}
                 {index === 1 && <div className="text-xs text-gray-500 mt-1">Still counting...</div>}
               </div>
             </div>
@@ -176,33 +148,27 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
           <h3 className="text-2xl font-bold text-center mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Key Achievements
           </h3>
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-8 border border-gray-200 dark:border-gray-700">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                <Award size={32} className="text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800 text-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award size={24} className="text-white" />
               </div>
+              <div className="font-semibold text-blue-700 dark:text-blue-300 mb-2">Leadership</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Software Development Club Lead</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-4">
-                <AnimatedCounter end={3} isInView={inView} />
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800 text-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award size={24} className="text-white" />
               </div>
-              <div className="text-gray-600 dark:text-gray-400 font-medium mb-6">
-                Major Professional Achievements
+              <div className="font-semibold text-green-700 dark:text-green-300 mb-2">Teaching</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Graduate Teaching Assistant for Database Systems</div>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800 text-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award size={24} className="text-white" />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
-                  <div className="font-semibold text-blue-700 dark:text-blue-300 mb-2">Leadership</div>
-                  <div className="text-gray-600 dark:text-gray-400">Software Development Club Lead</div>
-                </div>
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
-                  <div className="font-semibold text-green-700 dark:text-green-300 mb-2">Teaching</div>
-                  <div className="text-gray-600 dark:text-gray-400">Graduate Teaching Assistant for Database Systems</div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
-                  <div className="font-semibold text-purple-700 dark:text-purple-300 mb-2">Research</div>
-                  <div className="text-gray-600 dark:text-gray-400">Graduate Research Assistant</div>
-                </div>
-              </div>
+              <div className="font-semibold text-purple-700 dark:text-purple-300 mb-2">Research</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Graduate Research Assistant</div>
             </div>
           </div>
         </motion.div>

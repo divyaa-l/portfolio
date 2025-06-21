@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-8"
           >
-            <div className="w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-2xl">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-2xl">
               <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
                 <img
                   src="/lovable-uploads/e82a3565-96c0-417b-b56c-59bb148b263b.png"
