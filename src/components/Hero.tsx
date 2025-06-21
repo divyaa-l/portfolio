@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -103,9 +104,9 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-lg sm:text-xl md:text-2xl text-purple-200 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
           >
-            <div className="flex items-baseline justify-center">
+            <div className="flex items-center justify-center">
               <span className="text-white">I am a </span>
-              <div className="relative h-8 ml-2 min-w-[200px] flex items-center">
+              <div className="relative ml-2 flex items-center">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentRoleIndex}
@@ -118,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                       damping: 20,
                       duration: 0.4
                     }}
-                    className="text-white font-semibold absolute top-0 left-0 whitespace-nowrap"
+                    className="text-white font-semibold whitespace-nowrap"
                   >
                     {roles[currentRoleIndex]}
                   </motion.span>
@@ -177,3 +178,4 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
 };
 
 export default Hero;
+
