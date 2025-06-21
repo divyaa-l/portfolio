@@ -9,8 +9,8 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20" />
+    <footer className="bg-gray-900 text-white py-12 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/20 to-gray-900/20" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full mb-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <ChevronUp size={24} />
           </motion.button>
@@ -29,8 +29,8 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Divya Lanka
+            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-slate-300 to-slate-400 bg-clip-text text-transparent">
+              Sai Divya Lanka
             </h3>
             <p className="text-gray-400 max-w-md mx-auto">
               Transforming data into powerful solutions that drive business impact.
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             className="border-t border-gray-800 pt-8"
           >
             <p className="text-gray-400">
-              © 2025 Divya Lanka. All rights reserved.
+              © 2025 Sai Divya Lanka. All rights reserved.
             </p>
           </motion.div>
         </div>

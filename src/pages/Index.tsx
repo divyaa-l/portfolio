@@ -10,46 +10,24 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import ThemeToggle from '../components/ThemeToggle';
 import ParticleBackground from '../components/ParticleBackground';
 
 const Index = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
-    } else {
-      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
+    // Force dark mode
+    document.documentElement.classList.add('dark');
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      darkMode ? 'bg-gray-900' : 'bg-gray-50'
-    }`}>
-      <ParticleBackground darkMode={darkMode} />
+    <div className="min-h-screen bg-gray-900 transition-colors duration-300">
+      <ParticleBackground darkMode={true} />
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-      <ThemeToggle darkMode={darkMode} toggleTheme={toggleTheme} />
       
       <main className="relative z-10">
         <Hero setActiveSection={setActiveSection} />
-        <About setActiveSection={setActiveSection} darkMode={darkMode} />
+        <About setActiveSection={setActiveSection} darkMode={true} />
         <Skills setActiveSection={setActiveSection} />
         <Experience setActiveSection={setActiveSection} />
         <Projects setActiveSection={setActiveSection} />
