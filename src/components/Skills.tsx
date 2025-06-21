@@ -2,6 +2,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { 
+  FaReact, 
+  FaJs, 
+  FaHtml5, 
+  FaCss3Alt, 
+  FaPython, 
+  FaJava, 
+  FaDatabase, 
+  FaAws, 
+  FaDocker, 
+  FaGitAlt,
+  FaCogs,
+  FaTerminal
+} from 'react-icons/fa';
+import { 
+  SiTypescript, 
+  SiNodedotjs, 
+  SiPostgresql, 
+  SiApacheairflow, 
+  SiGooglebigquery, 
+  SiMongodb, 
+  SiMicrosoftazure, 
+  SiKubernetes, 
+  SiPandas, 
+  SiNumpy, 
+  SiScikitlearn, 
+  SiTensorflow, 
+  SiPytorch 
+} from 'react-icons/si';
 
 interface SkillsProps {
   setActiveSection: (section: string) => void;
@@ -18,28 +47,65 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
   const skillGroups = [
     {
       title: 'Frontend',
-      skills: ['React.js', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3'],
+      skills: [
+        { name: 'React.js', icon: FaReact },
+        { name: 'JavaScript', icon: FaJs },
+        { name: 'TypeScript', icon: SiTypescript },
+        { name: 'HTML5', icon: FaHtml5 },
+        { name: 'CSS3', icon: FaCss3Alt }
+      ],
       gradient: 'from-blue-500 to-cyan-500',
+      headerIcon: FaReact,
     },
     {
       title: 'Backend',
-      skills: ['Python', 'Java', 'C/C++', 'Node.js', 'Shell Scripting'],
+      skills: [
+        { name: 'Python', icon: FaPython },
+        { name: 'Java', icon: FaJava },
+        { name: 'C/C++', icon: FaCogs },
+        { name: 'Node.js', icon: SiNodedotjs },
+        { name: 'Shell Scripting', icon: FaTerminal }
+      ],
       gradient: 'from-green-500 to-emerald-500',
+      headerIcon: FaPython,
     },
     {
       title: 'Data Engineering & Databases',
-      skills: ['SQL', 'PostgreSQL', 'Apache Airflow', 'ETL/ELT', 'BigQuery', 'MongoDB'],
+      skills: [
+        { name: 'SQL', icon: FaDatabase },
+        { name: 'PostgreSQL', icon: SiPostgresql },
+        { name: 'Apache Airflow', icon: SiApacheairflow },
+        { name: 'ETL/ELT', icon: FaCogs },
+        { name: 'BigQuery', icon: SiGooglebigquery },
+        { name: 'MongoDB', icon: SiMongodb }
+      ],
       gradient: 'from-purple-500 to-violet-500',
+      headerIcon: FaDatabase,
     },
     {
       title: 'Cloud & DevOps',
-      skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD', 'Git'],
+      skills: [
+        { name: 'AWS', icon: FaAws },
+        { name: 'Azure', icon: SiMicrosoftazure },
+        { name: 'Docker', icon: FaDocker },
+        { name: 'Kubernetes', icon: SiKubernetes },
+        { name: 'CI/CD', icon: FaGitAlt },
+        { name: 'Git', icon: FaGitAlt }
+      ],
       gradient: 'from-orange-500 to-red-500',
+      headerIcon: FaAws,
     },
     {
       title: 'Data Science & ML',
-      skills: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'PyTorch'],
+      skills: [
+        { name: 'Pandas', icon: SiPandas },
+        { name: 'NumPy', icon: SiNumpy },
+        { name: 'Scikit-learn', icon: SiScikitlearn },
+        { name: 'TensorFlow', icon: SiTensorflow },
+        { name: 'PyTorch', icon: SiPytorch }
+      ],
       gradient: 'from-pink-500 to-rose-500',
+      headerIcon: SiTensorflow,
     },
   ];
 
@@ -72,7 +138,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
               className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300"
             >
               <div className={`w-12 h-12 bg-gradient-to-r ${group.gradient} rounded-lg flex items-center justify-center mb-4`}>
-                <div className="w-6 h-6 bg-white rounded opacity-80" />
+                <group.headerIcon className="w-6 h-6 text-white" />
               </div>
               
               <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
@@ -82,14 +148,15 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill, index) => (
                   <motion.span
-                    key={skill}
+                    key={skill.name}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: (groupIndex * 0.1) + (index * 0.05) }}
                     whileHover={{ scale: 1.1 }}
-                    className={`px-3 py-1 bg-gradient-to-r ${group.gradient} text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200`}
+                    className={`px-3 py-2 bg-gradient-to-r ${group.gradient} text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2`}
                   >
-                    {skill}
+                    <skill.icon className="w-4 h-4" />
+                    {skill.name}
                   </motion.span>
                 ))}
               </div>
