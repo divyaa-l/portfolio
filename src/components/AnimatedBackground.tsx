@@ -12,7 +12,7 @@ const AnimatedBackground: React.FC = () => {
     if (!ctx) return;
 
     let particles: Particle[] = [];
-    const particleCount = 80;
+    const particleCount = 120;
 
     class Particle {
       x: number;
@@ -22,20 +22,34 @@ const AnimatedBackground: React.FC = () => {
       size: number;
       opacity: number;
       color: string;
+      pulsePhase: number;
+      pulseSpeed: number;
 
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.8;
-        this.vy = (Math.random() - 0.5) * 0.8;
-        this.size = Math.random() * 3 + 1;
-        this.opacity = Math.random() * 0.6 + 0.3;
+        this.vx = (Math.random() - 0.5) * 1.2;
+        this.vy = (Math.random() - 0.5) * 1.2;
+        this.size = Math.random() * 4 + 2;
+        this.opacity = Math.random() * 0.8 + 0.4;
+        this.pulsePhase = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.02 + 0.01;
         
-        const colors = ['#8B5CF6', '#A855F7', '#C084FC', '#E879F9', '#60A5FA'];
+        // Much brighter, more visible colors for dark backgrounds
+        const colors = [
+          '#00FFFF', // Bright cyan
+          '#FF00FF', // Bright magenta
+          '#FFFF00', // Bright yellow
+          '#00FF00', // Bright green
+          '#FF6600', // Bright orange
+          '#FFFFFF', // Pure white
+          '#FF0080', // Hot pink
+          '#80FF00', // Lime green
+        ];
         this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
-      update() {
+      update(time: number) {
         this.x += this.vx;
         this.y += this.vy;
 
@@ -43,17 +57,34 @@ const AnimatedBackground: React.FC = () => {
         if (this.x > canvas.width) this.x = 0;
         if (this.y < 0) this.y = canvas.height;
         if (this.y > canvas.height) this.y = 0;
+
+        // Enhanced pulsing effect
+        this.pulsePhase += this.pulseSpeed;
+        this.opacity = 0.4 + Math.sin(this.pulsePhase) * 0.4;
       }
 
       draw() {
         if (!ctx) return;
         
         ctx.save();
+        
+        // Create intense glow effect
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 20;
         ctx.globalAlpha = this.opacity;
+        
+        // Draw the main particle
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Add extra glow ring
+        ctx.globalAlpha = this.opacity * 0.3;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+        ctx.fill();
+        
         ctx.restore();
       }
     }
@@ -72,30 +103,42 @@ const AnimatedBackground: React.FC = () => {
     };
 
     let animationId: number;
-    const animate = () => {
+    const animate = (time: number) => {
       if (!ctx || !canvas) return;
       
-      // Clear the canvas completely instead of using semi-transparent fill
+      // Clear the canvas completely
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(particle => {
-        particle.update();
+        particle.update(time);
         particle.draw();
       });
 
-      // Draw connections
+      // Draw enhanced connections with bright colors
       ctx.save();
-      ctx.lineWidth = 0.8;
+      ctx.lineWidth = 1.5;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
-            const opacity = (120 - distance) / 120 * 0.3;
+          if (distance < 150) {
+            const opacity = (150 - distance) / 150 * 0.6;
             ctx.globalAlpha = opacity;
-            ctx.strokeStyle = '#8B5CF6';
+            
+            // Create gradient line with bright colors
+            const gradient = ctx.createLinearGradient(
+              particles[i].x, particles[i].y,
+              particles[j].x, particles[j].y
+            );
+            gradient.addColorStop(0, particles[i].color);
+            gradient.addColorStop(1, particles[j].color);
+            
+            ctx.strokeStyle = gradient;
+            ctx.shadowColor = '#FFFFFF';
+            ctx.shadowBlur = 5;
+            
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -109,7 +152,7 @@ const AnimatedBackground: React.FC = () => {
     };
 
     resizeCanvas();
-    animate();
+    animate(0);
 
     const handleResize = () => resizeCanvas();
     window.addEventListener('resize', handleResize);
