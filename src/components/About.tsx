@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -145,7 +146,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
             number: {
               density: {
                 enable: true,
-                value_area: 800,
+                area: 800,
               },
               value: 60,
             },
@@ -181,7 +182,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
           </h2>
         </motion.div>
 
-        <div className="pt-24">
+        <div className="pt-12">
           <div className="max-w-4xl mx-auto" ref={containerRef}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
