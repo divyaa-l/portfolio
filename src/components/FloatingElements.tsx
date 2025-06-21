@@ -1,109 +1,109 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Cpu, Globe, Zap, Settings, Terminal, GitBranch } from 'lucide-react';
+import { Code2, Database, Cpu, Globe, Zap, Settings, Terminal, GitBranch, Layers, Box } from 'lucide-react';
 
 const FloatingElements: React.FC = () => {
-  const icons = [Code, Database, Cpu, Globe, Zap, Settings, Terminal, GitBranch];
+  const techIcons = [Code2, Database, Cpu, Globe, Zap, Settings, Terminal, GitBranch, Layers, Box];
   
   return (
-    <div className="fixed inset-0 pointer-events-none z-[2] overflow-hidden w-full h-full">
+    <div className="fixed inset-0 -z-10 pointer-events-none w-full h-full overflow-hidden">
       {/* Professional floating tech icons */}
-      {icons.map((Icon, index) => (
+      {techIcons.map((Icon, index) => (
         <motion.div
-          key={index}
-          className="absolute text-purple-400/40"
+          key={`tech-${index}`}
+          className="absolute text-purple-400/20"
           style={{
-            left: `${10 + Math.random() * 80}%`,
-            top: `${10 + Math.random() * 80}%`,
+            left: `${5 + Math.random() * 90}%`,
+            top: `${5 + Math.random() * 90}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, Math.random() * 40 - 20, 0],
-            opacity: [0.3, 0.7, 0.3],
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
+            y: [0, -20, 0],
+            x: [0, Math.random() * 20 - 10, 0],
+            opacity: [0.1, 0.3, 0.1],
+            scale: [1, 1.1, 1],
+            rotate: [0, 360],
           }}
           transition={{
-            duration: 12 + Math.random() * 8,
+            duration: 15 + Math.random() * 10,
             repeat: Infinity,
-            delay: Math.random() * 3,
+            delay: Math.random() * 5,
             ease: "easeInOut",
           }}
         >
-          <Icon size={20 + Math.random() * 12} />
+          <Icon size={16 + Math.random() * 8} />
         </motion.div>
       ))}
       
-      {/* Gradient orbs */}
-      {[...Array(4)].map((_, i) => (
+      {/* Subtle gradient orbs */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={`orb-${i}`}
-          className="absolute rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-3xl"
+          className="absolute rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-2xl"
           style={{
-            width: `${200 + Math.random() * 150}px`,
-            height: `${200 + Math.random() * 150}px`,
+            width: `${150 + Math.random() * 100}px`,
+            height: `${150 + Math.random() * 100}px`,
             left: `${Math.random() * 80}%`,
             top: `${Math.random() * 80}%`,
           }}
           animate={{
-            x: [0, Math.random() * 200 - 100, 0],
-            y: [0, Math.random() * 200 - 100, 0],
-            scale: [1, 1.3, 1],
-            opacity: [0.4, 0.8, 0.4],
+            x: [0, Math.random() * 100 - 50, 0],
+            y: [0, Math.random() * 100 - 50, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
-            duration: 20 + Math.random() * 15,
+            duration: 25 + Math.random() * 15,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: Math.random() * 8,
+            delay: Math.random() * 10,
           }}
         />
       ))}
       
-      {/* Professional geometric shapes */}
-      {[...Array(6)].map((_, i) => (
+      {/* Geometric shapes */}
+      {[...Array(4)].map((_, i) => (
         <motion.div
           key={`shape-${i}`}
-          className="absolute border border-purple-400/30"
+          className="absolute border border-purple-400/15"
           style={{
-            width: '40px',
-            height: '40px',
-            left: `${Math.random() * 90}%`,
-            top: `${Math.random() * 90}%`,
+            width: '30px',
+            height: '30px',
+            left: `${Math.random() * 95}%`,
+            top: `${Math.random() * 95}%`,
             borderRadius: i % 2 === 0 ? '50%' : '0%',
           }}
           animate={{
             rotate: [0, 360],
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.5, 0.2],
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.3, 0.1],
           }}
           transition={{
-            duration: 25 + i * 3,
+            duration: 20 + i * 5,
             repeat: Infinity,
             ease: "linear",
-            delay: i * 2,
+            delay: i * 3,
           }}
         />
       ))}
 
-      {/* Pulsing dots */}
-      {[...Array(8)].map((_, i) => (
+      {/* Minimal pulsing dots */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={`dot-${i}`}
-          className="absolute w-3 h-3 bg-purple-400/60 rounded-full"
+          className="absolute w-2 h-2 bg-purple-400/40 rounded-full"
           style={{
-            left: `${Math.random() * 95}%`,
-            top: `${Math.random() * 95}%`,
+            left: `${Math.random() * 98}%`,
+            top: `${Math.random() * 98}%`,
           }}
           animate={{
-            scale: [1, 2, 1],
-            opacity: [0.6, 1, 0.6],
+            scale: [1, 1.5, 1],
+            opacity: [0.4, 0.8, 0.4],
           }}
           transition={{
-            duration: 4 + Math.random() * 3,
+            duration: 3 + Math.random() * 2,
             repeat: Infinity,
-            delay: Math.random() * 4,
+            delay: Math.random() * 3,
           }}
         />
       ))}
