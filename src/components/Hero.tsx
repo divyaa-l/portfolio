@@ -103,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             className="text-lg sm:text-xl md:text-2xl text-purple-200 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
           >
             <span className="text-white">I am a </span>
-            <div className="inline-block h-10 overflow-hidden relative">
+            <span className="inline-block h-10 overflow-hidden relative min-w-[250px] align-top">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentRoleIndex}
@@ -121,7 +121,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                   {roles[currentRoleIndex]}
                 </motion.span>
               </AnimatePresence>
-            </div>
+            </span>
           </motion.div>
 
           <motion.div
