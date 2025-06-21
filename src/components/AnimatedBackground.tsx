@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 
 const AnimatedBackground: React.FC = () => {
@@ -74,8 +75,8 @@ const AnimatedBackground: React.FC = () => {
     const animate = () => {
       if (!ctx || !canvas) return;
       
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Clear the canvas completely instead of using semi-transparent fill
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(particle => {
         particle.update();
@@ -124,7 +125,7 @@ const AnimatedBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-20 pointer-events-none w-full h-full"
+      className="fixed inset-0 -z-10 pointer-events-none w-full h-full"
       style={{ 
         display: 'block',
         width: '100vw',
