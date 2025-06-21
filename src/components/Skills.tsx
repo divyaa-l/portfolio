@@ -121,7 +121,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
               Skills & Technologies
             </span>
           </h2>
@@ -134,14 +134,14 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: groupIndex * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-black backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl transition-all duration-300"
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="bg-black backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl hover:shadow-pink-500/40 transition-all duration-300"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg flex items-center justify-center mb-4">
                 <group.headerIcon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold mb-4 bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+              <h3 className="text-xl font-bold mb-4 bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
                 {group.title}
               </h3>
               
@@ -153,7 +153,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: (groupIndex * 0.1) + (index * 0.05) }}
                     whileHover={{ scale: 1.1 }}
-                    className={`px-3 py-2 ${group.skillColor} text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2`}
+                    className="px-3 py-2 bg-pink-500 text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
                   >
                     <skill.icon className="w-4 h-4" />
                     {skill.name}

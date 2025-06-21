@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
@@ -10,7 +9,7 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import ParticleBackground from '../components/ParticleBackground';
+import GlobalParticleBackground from '../components/GlobalParticleBackground';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -21,8 +20,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black transition-colors duration-300">
-      <ParticleBackground darkMode={true} />
+    <div className="min-h-screen bg-black transition-colors duration-300 relative">
+      <GlobalParticleBackground />
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       
       <main className="relative z-10">

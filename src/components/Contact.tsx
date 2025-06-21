@@ -87,7 +87,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
@@ -98,7 +98,8 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600"
+            whileHover={{ scale: 1.02 }}
+            className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-pink-500/40 transition-all duration-300"
           >
             <h3 className="text-2xl font-bold mb-6 text-pink-500">
               Send me a message
@@ -116,7 +117,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 placeholder-purple-300"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 placeholder-slate-400"
                   placeholder="Your name"
                 />
               </div>
@@ -132,7 +133,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 placeholder-purple-300"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 placeholder-slate-400"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -148,7 +149,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 resize-none placeholder-purple-300"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 resize-none placeholder-slate-400"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
@@ -206,7 +207,10 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-pink-500/40 transition-all duration-300"
+            >
               <h3 className="text-2xl font-bold mb-6 text-pink-500">
                 Connect with me
               </h3>
@@ -229,7 +233,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   </motion.a>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

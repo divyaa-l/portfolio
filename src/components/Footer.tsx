@@ -23,7 +23,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black border-t border-purple-600 py-12">
+    <footer className="bg-black border-t border-purple-600 py-12 relative z-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center space-y-8">
           <motion.div
@@ -32,7 +32,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h3 className="text-2xl font-bold bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-bold bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent mb-4">
               Sai Divya Lanka
             </h3>
             <p className="text-purple-200 max-w-md">
@@ -70,7 +70,7 @@ const Footer = () => {
             <p className="text-purple-200 text-sm flex items-center justify-center gap-2">
               Made with <Heart size={16} className="text-pink-500" /> by Sai Divya Lanka
             </p>
-            <p className="text-purple-200 text-xs mt-2">
+            <p className="text-slate-400 text-xs mt-2">
               © 2024 All rights reserved.
             </p>
           </motion.div>

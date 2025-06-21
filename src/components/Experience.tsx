@@ -134,7 +134,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
   };
 
   return (
-    <section id="experience" ref={ref} className="py-20 relative overflow-hidden">
+    <section id="experience" ref={ref} className="py-20 relative overflow-hidden min-h-screen">
       <div className="absolute inset-0 bg-black" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -145,7 +145,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
               Work Experience
             </span>
           </h2>
@@ -166,36 +166,38 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                 <div className="absolute -left-12 top-6 w-4 h-4 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full hidden md:block" />
                 
                 <motion.div
-                  whileHover={{ y: -5 }}
-                  className="bg-black backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  whileHover={{ y: -5, scale: 1.05 }}
+                  className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl hover:shadow-pink-500/40 transition-all duration-300 cursor-pointer"
                   onClick={() => toggleCard(index)}
                 >
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent mb-2">
-                        {exp.title}
-                      </h3>
-                      <div className="text-lg font-semibold text-pink-500 mb-2">
-                        {exp.company}
-                      </div>
-                      <div className="flex flex-wrap gap-4 text-sm text-purple-200">
-                        <div className="flex items-center gap-1">
-                          <Calendar size={14} />
-                          {exp.period}
+                  <div className="bg-blue-900 -m-8 mb-6 p-6 rounded-t-2xl">
+                    <div className="flex justify-between items-start">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-pink-500 mb-2">
+                          {exp.title}
+                        </h3>
+                        <div className="text-lg font-semibold text-purple-300 mb-2">
+                          {exp.company}
                         </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin size={14} />
-                          {exp.location}
+                        <div className="flex flex-wrap gap-4 text-sm text-slate-400">
+                          <div className="flex items-center gap-1">
+                            <Calendar size={14} />
+                            {exp.period}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin size={14} />
+                            {exp.location}
+                          </div>
                         </div>
                       </div>
+                      <motion.div
+                        animate={{ rotate: expandedCard === index ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-pink-500"
+                      >
+                        {expandedCard === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                      </motion.div>
                     </div>
-                    <motion.div
-                      animate={{ rotate: expandedCard === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="text-pink-500"
-                    >
-                      {expandedCard === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                    </motion.div>
                   </div>
                   
                   <ul className="space-y-2 text-purple-200">

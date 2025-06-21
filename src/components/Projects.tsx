@@ -58,7 +58,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
@@ -71,8 +71,8 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="group bg-black backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl transition-all duration-300"
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="group bg-black backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl hover:shadow-pink-500/40 transition-all duration-300"
             >
               <div className="relative overflow-hidden">
                 <img

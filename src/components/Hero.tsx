@@ -63,7 +63,12 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
       <div className="absolute inset-0 bg-black" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -87,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
           >
-            <span className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
               Sai Divya Lanka
             </span>
           </motion.h1>
@@ -156,7 +161,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
           >
             <ChevronDown size={32} className="text-purple-400" />
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
