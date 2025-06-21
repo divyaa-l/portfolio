@@ -1,4 +1,9 @@
 
+/* Force transparent backgrounds to allow canvas visibility */
+html, body, #root {
+  background: transparent !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -99,7 +104,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* Removed bg-background to prevent dark background */
   }
 }
 

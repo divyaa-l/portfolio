@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -16,9 +16,7 @@ import ScrollProgressBar from '../components/ScrollProgressBar';
 export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
 
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+  // Removed the useEffect that was adding 'dark' class globally
 
   return (
     <>
@@ -27,9 +25,9 @@ export default function Index() {
       <FloatingElements />
       <ScrollProgressBar />
 
-      {/* Main content */}
+      {/* Main content - completely transparent wrapper */}
       <motion.div
-        className="min-h-screen bg-transparent transition-colors duration-300 relative overflow-x-hidden z-10"
+        className="min-h-screen transition-colors duration-300 relative overflow-x-hidden z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
