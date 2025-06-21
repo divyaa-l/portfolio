@@ -21,9 +21,11 @@ const ScrollProgressBar: React.FC = () => {
     <div className="fixed top-0 left-0 w-full h-1 bg-gray-800/50 z-50">
       <motion.div
         className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
-        style={{ scaleX: scrollProgress }}
+        style={{ 
+          scaleX: scrollProgress,
+          transformOrigin: 'left'
+        }}
         initial={{ scaleX: 0 }}
-        transformOrigin="left"
       />
     </div>
   );
