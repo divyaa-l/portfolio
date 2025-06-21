@@ -29,7 +29,7 @@ export default function Index() {
 
       {/* Main content */}
       <motion.div
-        className="min-h-screen bg-black transition-colors duration-300 relative overflow-x-hidden z-10"
+        className="min-h-screen bg-transparent transition-colors duration-300 relative overflow-x-hidden z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
