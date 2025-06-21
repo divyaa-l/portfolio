@@ -26,7 +26,9 @@ const GlobalParticleBackground: React.FC = () => {
           enable: true,
           mode: 'repulse',
         },
-        resize: true,
+        resize: {
+          enable: true,
+        },
       },
       modes: {
         push: {
@@ -40,13 +42,13 @@ const GlobalParticleBackground: React.FC = () => {
     },
     particles: {
       color: {
-        value: ['#0f172a', '#7C3AED', '#A855F7', '#DB2777', '#F59E0B'],
+        value: ['#A855F7', '#EC4899', '#F472B6', '#DB2777', '#C084FC'],
       },
       links: {
-        color: '#7C3AED',
+        color: '#A855F7',
         distance: 150,
         enable: true,
-        opacity: 0.3,
+        opacity: 0.4,
         width: 1,
       },
       move: {
@@ -62,16 +64,16 @@ const GlobalParticleBackground: React.FC = () => {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800,
         },
         value: 80,
       },
       opacity: {
-        value: 0.5,
+        value: 0.6,
         animation: {
           enable: true,
           speed: 1,
-          minimumValue: 0.1,
+          sync: false,
         },
       },
       shape: {
@@ -82,7 +84,7 @@ const GlobalParticleBackground: React.FC = () => {
         animation: {
           enable: true,
           speed: 2,
-          minimumValue: 0.1,
+          sync: false,
         },
       },
     },
@@ -92,8 +94,8 @@ const GlobalParticleBackground: React.FC = () => {
   return (
     <Particles
       id="tsparticles"
-      init={particlesInit}
       options={options}
+      init={particlesInit}
       className="fixed inset-0 pointer-events-none z-0"
     />
   );

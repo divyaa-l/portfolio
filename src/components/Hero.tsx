@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-8"
           >
-            <div className="relative mt-16 w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-600 to-pink-500 p-1 shadow-2xl shadow-pink-500/40 transform translate-y-8">
+            <div className="relative mt-16 w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-2xl shadow-purple-500/50 transform translate-y-8">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
                 <img
                   src="/lovable-uploads/55fc955c-5023-4d3d-ba13-8d30a1ef83c1.png"
@@ -92,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
           >
-            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Sai Divya Lanka
             </span>
           </motion.h1>
@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="text-pink-500 font-semibold"
+                className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent font-semibold"
               >
                 {roles[currentRoleIndex]}
               </motion.span>
@@ -135,7 +135,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                 transition={{ delay: 0.8 + index * 0.1 }}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-pink-500/40 transition-shadow duration-300"
+                className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
               >
                 <social.icon size={20} />
               </motion.a>
@@ -149,7 +149,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             onClick={scrollToAbout}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-pink-500/40 transition-all duration-300 mb-16"
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-purple-500/50 transition-all duration-300 mb-16"
           >
             See My Work
           </motion.button>

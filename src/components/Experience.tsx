@@ -145,14 +145,14 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Work Experience
             </span>
           </h2>
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-600 to-pink-500 hidden md:block" />
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500 hidden md:block" />
           
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -161,16 +161,16 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`relative ${index % 2 === 0 ? 'md:ml-20' : 'md:ml-20 md:pl-8'}`}
+                className="relative md:ml-20"
               >
-                <div className="absolute -left-12 top-6 w-4 h-4 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full hidden md:block" />
+                <div className="absolute -left-12 top-6 w-4 h-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full hidden md:block" />
                 
                 <motion.div
-                  whileHover={{ y: -5, scale: 1.05 }}
-                  className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-2xl hover:shadow-pink-500/40 transition-all duration-300 cursor-pointer"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-purple-500/20 border border-purple-500 hover:shadow-2xl hover:shadow-pink-500/40 transition-all duration-300 cursor-pointer"
                   onClick={() => toggleCard(index)}
                 >
-                  <div className="bg-blue-900 -m-8 mb-6 p-6 rounded-t-2xl">
+                  <div className="bg-blue-900 -m-8 mb-6 p-6 rounded-t-2xl border-b border-purple-500">
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-pink-500 mb-2">
@@ -179,7 +179,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                         <div className="text-lg font-semibold text-purple-300 mb-2">
                           {exp.company}
                         </div>
-                        <div className="flex flex-wrap gap-4 text-sm text-slate-400">
+                        <div className="flex flex-wrap gap-4 text-sm text-purple-200">
                           <div className="flex items-center gap-1">
                             <Calendar size={14} />
                             {exp.period}
@@ -218,7 +218,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <ul className="space-y-2 mt-4 pt-4 border-t border-purple-600">
+                        <ul className="space-y-2 mt-4 pt-4 border-t border-purple-500">
                           {exp.details.map((detail, detailIndex) => (
                             <motion.li
                               key={detailIndex}
