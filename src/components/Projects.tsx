@@ -84,15 +84,15 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-pink-500 mb-3">
+                <h3 className="text-xl font-bold text-purple-600 mb-3">
                   {project.title}
                 </h3>
                 
-                <p className="text-purple-200 mb-3 line-clamp-3">
+                <p className="text-gray-300 mb-3 line-clamp-3">
                   {project.description}
                 </p>
                 
-                <p className="text-sm font-semibold text-pink-500 mb-4">
+                <p className="text-sm font-semibold text-gray-300 mb-4">
                   {project.details}
                 </p>
                 

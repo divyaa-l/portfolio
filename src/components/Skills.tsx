@@ -153,10 +153,12 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: (groupIndex * 0.1) + (index * 0.05) }}
                     whileHover={{ scale: 1.1 }}
-                    className="px-3 py-2 bg-pink-500 text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
+                    className="px-3 py-2 bg-pink-500 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
                   >
-                    <skill.icon className="w-4 h-4" />
-                    {skill.name}
+                    <skill.icon className="w-4 h-4 text-white" />
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-400 text-sm font-semibold">
+                      {skill.name}
+                    </span>
                   </motion.span>
                 ))}
               </div>
