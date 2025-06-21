@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 
 const AnimatedBackground: React.FC = () => {
@@ -60,7 +59,7 @@ const AnimatedBackground: React.FC = () => {
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
-      canvas.height = document.documentElement.scrollHeight;
+      canvas.height = window.innerHeight;
       initParticles();
     };
 
@@ -125,12 +124,11 @@ const AnimatedBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 pointer-events-none w-full h-full"
+      className="fixed inset-0 -z-20 pointer-events-none w-full h-full"
       style={{ 
         display: 'block',
         width: '100vw',
-        height: '100vh',
-        minHeight: '100vh'
+        height: '100vh'
       }}
     />
   );
