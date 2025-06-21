@@ -62,6 +62,9 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               Featured Projects
             </span>
           </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            Showcasing innovative solutions • <span className="text-purple-600 dark:text-purple-400 font-semibold">Still counting...</span>
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

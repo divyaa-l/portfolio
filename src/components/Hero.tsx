@@ -56,8 +56,8 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             <div className="w-48 h-48 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1">
               <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
                 <img
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&h=400"
-                  alt="Divya Lanka"
+                  src="/lovable-uploads/ac242227-0307-4205-b35a-33e19907a782.png"
+                  alt="Sai Divya Lanka"
                   className="w-44 h-44 rounded-full object-cover"
                 />
               </div>
@@ -71,7 +71,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             className="text-5xl md:text-7xl font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
-              Divya Lanka
+              Sai Divya Lanka
             </span>
           </motion.h1>
 

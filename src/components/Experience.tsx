@@ -20,46 +20,88 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
 
   const experiences = [
     {
-      title: 'Data Engineer & Full-Stack Solutions',
-      company: 'UNC Charlotte',
+      title: 'Principal Data Engineer - Full-Stack Solutions',
+      company: 'University of North Carolina at Charlotte',
       period: 'Feb 2024 – Dec 2024',
       location: 'Charlotte, NC',
       description: 'Led full-stack development and data engineering initiatives for university systems.',
       details: [
-        'Designed scalable full-stack apps (JavaScript, React, Python) for 10K+ users',
-        'Developed robust ETL pipelines with Python, SQL, and cloud solutions',
-        'Created interactive dashboards enabling real-time analytics',
-        'Delivered 15+ data-driven projects with comprehensive documentation',
+        'Built scalable full-stack applications serving 10K+ users with responsive dashboards',
+        'Developed robust ETL pipelines processing multi-terabyte datasets with 99.9% reliability',
+        'Created comprehensive analytics solutions generating actionable business insights',
+        'Delivered 15+ data engineering projects improving operational efficiency by 75%',
       ],
       gradient: 'from-blue-500 to-purple-500',
     },
     {
-      title: 'Data Engineer Intern',
+      title: 'Data Engineer Intern - Solutions Development',
       company: 'FireEye',
       period: 'Sep 2024 – Dec 2024',
-      location: 'Remote',
-      description: 'Contributed to cybersecurity data analytics and pipeline optimization.',
+      location: 'Charlotte, NC',
+      description: 'Built modern data solutions for security analytics with optimized performance.',
       details: [
-        'Built scalable analytics apps using Python, Java, JavaScript',
-        'Reduced ETL pipeline dev-time by 70% using Apache Airflow',
-        'Enhanced app performance and reliability metrics by 90%',
-        'Collaborated with cross-functional teams for efficient delivery',
+        'Developed scalable data solutions using Python, Java, and JavaScript',
+        'Implemented ETL frameworks reducing development time by 70%',
+        'Built full-stack applications providing intuitive interfaces for complex data analysis',
+        'Created dashboards and reports for security operations teams',
       ],
       gradient: 'from-red-500 to-orange-500',
     },
     {
-      title: 'Data Engineer',
-      company: 'Tata Consultancy Services',
-      period: 'Aug 2021 – Aug 2023',
-      location: 'India',
-      description: 'Engineered enterprise-scale data solutions for Fortune 500 clients.',
+      title: 'Data Engineer Intern - Enterprise Solutions',
+      company: 'Bank of America',
+      period: 'May 2024 – Jul 2024',
+      location: 'Charlotte, NC',
+      description: 'Designed enterprise-grade ETL pipelines for financial data processing.',
       details: [
-        'Engineered enterprise-grade data pipelines handling terabytes of data',
-        'Automated ETL processes reducing manual interventions by 80%',
-        'Delivered BI dashboards enabling strategic decision-making',
-        'Improved data warehouse query performance by 60%',
+        'Built ETL pipelines achieving 85% improvement in query performance',
+        'Developed dashboard applications enabling real-time financial analytics',
+        'Optimized SQL queries improving system efficiency by 90%',
+        'Established engineering best practices for data integrity and testing',
       ],
       gradient: 'from-green-500 to-teal-500',
+    },
+    {
+      title: 'Data Engineer',
+      company: 'Tata Consultancy Services',
+      period: 'Jul 2021 – Jul 2023',
+      location: 'Chennai, India',
+      description: 'Designed cloud-native data platforms supporting 200+ stakeholders.',
+      details: [
+        'Built scalable data platforms with unified access to enterprise data',
+        'Developed ETL frameworks orchestrating 300+ daily pipelines with 99.9% reliability',
+        'Created interactive dashboards improving analyst productivity by 40%',
+        'Led delivery of 20+ projects and mentored team of 6 engineers',
+      ],
+      gradient: 'from-purple-500 to-pink-500',
+    },
+    {
+      title: 'Data Engineer',
+      company: 'CricClubs (Startup)',
+      period: 'Feb 2021 – Jul 2021',
+      location: 'Hyderabad, India',
+      description: 'Built comprehensive analytics platform for 500K+ users.',
+      details: [
+        'Developed analytics platform enabling real-time data processing',
+        'Built responsive web applications serving 200K+ concurrent users',
+        'Implemented automated ETL pipelines connecting 20+ external data sources',
+        'Created custom dashboards translating complex analytics into business insights',
+      ],
+      gradient: 'from-cyan-500 to-blue-500',
+    },
+    {
+      title: 'Research Assistant - Data Engineering Lab',
+      company: 'Jawaharlal Nehru Technological University',
+      period: 'Jul 2020 – Feb 2021',
+      location: 'Hyderabad, India',
+      description: 'Developed innovative data processing solutions for research applications.',
+      details: [
+        'Created configurable frameworks for research dataset integration',
+        'Implemented optimization strategies improving query performance by 45%',
+        'Researched novel approaches to data pipeline design',
+        'Established best practices adopted in academic coursework',
+      ],
+      gradient: 'from-indigo-500 to-purple-500',
     },
   ];
 
@@ -95,7 +137,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 className={`relative ${index % 2 === 0 ? 'md:ml-20' : 'md:ml-20 md:pl-8'}`}
               >
                 {/* Timeline dot */}
