@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 
@@ -15,6 +15,23 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
       if (inView) setActiveSection('hero');
     },
   });
+
+  const roles = [
+    'Data Scientist',
+    'Data Engineer', 
+    'Software Developer',
+    'AI/ML Engineer'
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2500); // Change every 2.5 seconds
+
+    return () => clearInterval(interval);
+  }, [roles.length]);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
@@ -43,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
 
   return (
     <section id="hero" ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden pb-32">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20 dark:from-purple-900/40 dark:via-blue-900/40 dark:to-pink-900/40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0b0c1a] to-[#1a1a2e]" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="text-center">
@@ -70,22 +87,31 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
           >
-            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 via-purple-800 to-pink-500 bg-clip-text text-transparent">
               Sai Divya Lanka
             </span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
           >
-            Bridging Data Engineering, Data Science, and Software Development to deliver{' '}
-            <span className="text-purple-600 dark:text-purple-400 font-semibold">
-              high-impact, scalable solutions
-            </span>
-          </motion.p>
+            <span className="text-gray-300">I am a </span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentRoleIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="text-purple-400 font-semibold"
+              >
+                {roles[currentRoleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.div>
 
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -104,7 +130,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                 transition={{ delay: 0.8 + index * 0.1 }}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <social.icon size={20} />
               </motion.a>
@@ -118,7 +144,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             onClick={scrollToAbout}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 mb-16"
+            className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 mb-16"
           >
             See My Work
           </motion.button>
