@@ -8,51 +8,52 @@ const FloatingElements: React.FC = () => {
   
   return (
     <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden">
+      {/* Enhanced floating icons */}
       {icons.map((Icon, index) => (
         <motion.div
           key={index}
-          className="absolute text-purple-400/60"
+          className="absolute text-purple-300"
           style={{
             left: `${Math.random() * 90}%`,
             top: `${Math.random() * 90}%`,
           }}
           animate={{
-            y: [0, -120, 0],
-            x: [0, Math.random() * 60 - 30, 0],
+            y: [0, -150, 0],
+            x: [0, Math.random() * 80 - 40, 0],
             rotate: [0, 360, 0],
-            scale: [0.8, 1.2, 0.8],
-            opacity: [0.4, 0.8, 0.4],
+            scale: [0.8, 1.5, 0.8],
+            opacity: [0.6, 1, 0.6],
           }}
           transition={{
-            duration: 12 + Math.random() * 6,
+            duration: 10 + Math.random() * 8,
             repeat: Infinity,
-            delay: Math.random() * 8,
+            delay: Math.random() * 6,
             ease: "easeInOut",
           }}
         >
-          <Icon size={28 + Math.random() * 20} />
+          <Icon size={32 + Math.random() * 24} />
         </motion.div>
       ))}
       
       {/* Enhanced gradient orbs */}
-      {[...Array(8)].map((_, i) => (
+      {[...Array(10)].map((_, i) => (
         <motion.div
           key={`orb-${i}`}
-          className="absolute rounded-full bg-gradient-to-r from-purple-500/30 to-pink-500/30 blur-2xl"
+          className="absolute rounded-full bg-gradient-to-r from-purple-400/40 to-pink-400/40 blur-2xl"
           style={{
-            width: `${120 + Math.random() * 100}px`,
-            height: `${120 + Math.random() * 100}px`,
+            width: `${150 + Math.random() * 120}px`,
+            height: `${150 + Math.random() * 120}px`,
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            x: [0, Math.random() * 300 - 150, 0],
-            y: [0, Math.random() * 300 - 150, 0],
-            scale: [1, 1.8, 1],
-            opacity: [0.3, 0.6, 0.3],
+            x: [0, Math.random() * 400 - 200, 0],
+            y: [0, Math.random() * 400 - 200, 0],
+            scale: [1, 2, 1],
+            opacity: [0.4, 0.8, 0.4],
           }}
           transition={{
-            duration: 18 + Math.random() * 12,
+            duration: 15 + Math.random() * 10,
             repeat: Infinity,
             ease: "easeInOut",
             delay: Math.random() * 8,
@@ -60,25 +61,46 @@ const FloatingElements: React.FC = () => {
         />
       ))}
       
-      {/* Flowing lines */}
-      {[...Array(4)].map((_, i) => (
+      {/* Enhanced flowing lines */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={`line-${i}`}
-          className="absolute h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"
+          className="absolute h-px bg-gradient-to-r from-transparent via-purple-400/80 to-transparent"
           style={{
-            width: '200px',
+            width: '300px',
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            x: [-200, window.innerWidth + 200],
+            x: [-300, window.innerWidth + 300],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 8,
+            duration: 6,
             repeat: Infinity,
-            delay: i * 2,
+            delay: i * 1,
             ease: "linear",
+          }}
+        />
+      ))}
+
+      {/* Pulsing dots */}
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={`dot-${i}`}
+          className="absolute w-2 h-2 bg-purple-400 rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            scale: [1, 2, 1],
+            opacity: [0.4, 1, 0.4],
+          }}
+          transition={{
+            duration: 2 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 4,
           }}
         />
       ))}
