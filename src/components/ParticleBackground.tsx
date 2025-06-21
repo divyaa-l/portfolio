@@ -16,9 +16,9 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
     if (!ctx) return;
 
     const particles: Particle[] = [];
-    const particleCount = 120;
+    const particleCount = 150;
     const floatingShapes: FloatingShape[] = [];
-    const shapeCount = 8;
+    const shapeCount = 12;
 
     class Particle {
       x: number;
@@ -29,16 +29,21 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
       opacity: number;
       pulseSpeed: number;
       pulseOffset: number;
+      color: string;
 
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.8;
-        this.vy = (Math.random() - 0.5) * 0.8;
-        this.size = Math.random() * 3 + 1;
-        this.opacity = Math.random() * 0.6 + 0.4;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 4 + 1;
+        this.opacity = Math.random() * 0.8 + 0.2;
         this.pulseSpeed = Math.random() * 0.02 + 0.01;
         this.pulseOffset = Math.random() * Math.PI * 2;
+        
+        // Purple/Pink/White color palette
+        const colors = ['#8B5CF6', '#EC4899', '#F472B6', '#A855F7', '#FFFFFF'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
       update(time: number) {
@@ -48,8 +53,8 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-        // Pulsing effect
-        this.opacity = (Math.sin(time * this.pulseSpeed + this.pulseOffset) + 1) * 0.3 + 0.3;
+        // Enhanced pulsing effect
+        this.opacity = (Math.sin(time * this.pulseSpeed + this.pulseOffset) + 1) * 0.4 + 0.2;
       }
 
       draw(time: number) {
@@ -60,27 +65,21 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
         
         const gradient = ctx.createRadialGradient(
           this.x, this.y, 0,
-          this.x, this.y, this.size * 3
+          this.x, this.y, this.size * 4
         );
         
-        if (darkMode) {
-          gradient.addColorStop(0, '#8b5cf6');
-          gradient.addColorStop(0.5, '#ec4899');
-          gradient.addColorStop(1, 'transparent');
-        } else {
-          gradient.addColorStop(0, '#a855f7');
-          gradient.addColorStop(0.5, '#f472b6');
-          gradient.addColorStop(1, 'transparent');
-        }
+        gradient.addColorStop(0, this.color);
+        gradient.addColorStop(0.5, this.color + '80');
+        gradient.addColorStop(1, 'transparent');
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
         
-        // Add glow effect
-        ctx.shadowColor = darkMode ? '#8b5cf6' : '#a855f7';
-        ctx.shadowBlur = 10;
+        // Enhanced glow effect
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 15;
         ctx.fill();
         
         ctx.restore();
@@ -96,18 +95,22 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
       rotation: number;
       rotationSpeed: number;
       opacity: number;
-      shape: 'circle' | 'triangle' | 'square';
+      shape: 'circle' | 'triangle' | 'square' | 'diamond';
+      color: string;
 
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.3;
-        this.vy = (Math.random() - 0.5) * 0.3;
-        this.size = Math.random() * 40 + 20;
+        this.vx = (Math.random() - 0.5) * 0.2;
+        this.vy = (Math.random() - 0.5) * 0.2;
+        this.size = Math.random() * 60 + 30;
         this.rotation = 0;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-        this.opacity = Math.random() * 0.1 + 0.05;
-        this.shape = ['circle', 'triangle', 'square'][Math.floor(Math.random() * 3)] as 'circle' | 'triangle' | 'square';
+        this.rotationSpeed = (Math.random() - 0.5) * 0.01;
+        this.opacity = Math.random() * 0.15 + 0.05;
+        this.shape = ['circle', 'triangle', 'square', 'diamond'][Math.floor(Math.random() * 4)] as 'circle' | 'triangle' | 'square' | 'diamond';
+        
+        const colors = ['#8B5CF6', '#EC4899', '#F472B6', '#A855F7'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
       update() {
@@ -127,16 +130,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
         ctx.translate(this.x, this.y);
         ctx.rotate(this.rotation);
         
-        const gradient = ctx.createLinearGradient(-this.size/2, -this.size/2, this.size/2, this.size/2);
-        if (darkMode) {
-          gradient.addColorStop(0, '#8b5cf6');
-          gradient.addColorStop(1, '#ec4899');
-        } else {
-          gradient.addColorStop(0, '#a855f7');
-          gradient.addColorStop(1, '#f472b6');
-        }
-        
-        ctx.strokeStyle = gradient;
+        ctx.strokeStyle = this.color;
         ctx.lineWidth = 2;
         ctx.beginPath();
         
@@ -152,6 +146,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
             break;
           case 'square':
             ctx.rect(-this.size/2, -this.size/2, this.size, this.size);
+            break;
+          case 'diamond':
+            ctx.moveTo(0, -this.size/2);
+            ctx.lineTo(this.size/2, 0);
+            ctx.lineTo(0, this.size/2);
+            ctx.lineTo(-this.size/2, 0);
+            ctx.closePath();
             break;
         }
         
@@ -192,9 +193,9 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
         particle.draw(time * 0.001);
       });
 
-      // Draw enhanced connections
+      // Draw enhanced connections with purple/pink theme
       ctx.save();
-      ctx.globalAlpha = 0.2;
+      ctx.globalAlpha = 0.3;
       ctx.lineWidth = 1;
 
       for (let i = 0; i < particles.length; i++) {
@@ -203,22 +204,18 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
+          if (distance < 100) {
             const gradient = ctx.createLinearGradient(
               particles[i].x, particles[i].y,
               particles[j].x, particles[j].y
             );
             
-            if (darkMode) {
-              gradient.addColorStop(0, '#8b5cf6');
-              gradient.addColorStop(1, '#ec4899');
-            } else {
-              gradient.addColorStop(0, '#a855f7');
-              gradient.addColorStop(1, '#f472b6');
-            }
+            gradient.addColorStop(0, '#8B5CF6');
+            gradient.addColorStop(0.5, '#EC4899');
+            gradient.addColorStop(1, '#F472B6');
             
             ctx.strokeStyle = gradient;
-            ctx.globalAlpha = (120 - distance) / 120 * 0.3;
+            ctx.globalAlpha = (100 - distance) / 100 * 0.4;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -254,7 +251,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ darkMode }) => 
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.7 }}
+      style={{ opacity: 0.8 }}
     />
   );
 };

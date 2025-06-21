@@ -54,8 +54,8 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
         { name: 'HTML5', icon: FaHtml5 },
         { name: 'CSS3', icon: FaCss3Alt }
       ],
-      gradient: 'from-purple-600 to-pink-500',
       headerIcon: FaReact,
+      skillColor: 'bg-blue-500',
     },
     {
       title: 'Backend',
@@ -66,8 +66,8 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
         { name: 'Node.js', icon: SiNodedotjs },
         { name: 'Shell Scripting', icon: FaTerminal }
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
       headerIcon: FaPython,
+      skillColor: 'bg-green-500',
     },
     {
       title: 'Data Engineering & Databases',
@@ -79,8 +79,8 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
         { name: 'BigQuery', icon: SiGooglebigquery },
         { name: 'MongoDB', icon: SiMongodb }
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
       headerIcon: FaDatabase,
+      skillColor: 'bg-purple-500',
     },
     {
       title: 'Cloud & DevOps',
@@ -92,8 +92,8 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
         { name: 'CI/CD', icon: FaGitAlt },
         { name: 'Git', icon: FaGitAlt }
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
       headerIcon: FaAws,
+      skillColor: 'bg-orange-500',
     },
     {
       title: 'Data Science & ML',
@@ -104,8 +104,8 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
         { name: 'TensorFlow', icon: SiTensorflow },
         { name: 'PyTorch', icon: SiPytorch }
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
       headerIcon: SiTensorflow,
+      skillColor: 'bg-pink-500',
     },
   ];
 
@@ -135,13 +135,13 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: groupIndex * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-pink-500 hover:shadow-2xl transition-all duration-300"
+              className="bg-black backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-purple-500 hover:shadow-2xl transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
                 <group.headerIcon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold mb-4 text-white">
+              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 {group.title}
               </h3>
               
@@ -153,7 +153,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: (groupIndex * 0.1) + (index * 0.05) }}
                     whileHover={{ scale: 1.1 }}
-                    className="px-3 py-2 bg-pink-500 text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
+                    className={`px-3 py-2 ${group.skillColor} text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2`}
                   >
                     <skill.icon className="w-4 h-4" />
                     {skill.name}
