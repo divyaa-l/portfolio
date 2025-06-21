@@ -49,7 +49,7 @@ const Index = () => {
       
       <main className="relative z-10">
         <Hero setActiveSection={setActiveSection} />
-        <About setActiveSection={setActiveSection} />
+        <About setActiveSection={setActiveSection} darkMode={darkMode} />
         <Skills setActiveSection={setActiveSection} />
         <Experience setActiveSection={setActiveSection} />
         <Projects setActiveSection={setActiveSection} />

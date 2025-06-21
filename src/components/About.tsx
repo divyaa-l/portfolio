@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -11,9 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface AboutProps {
   setActiveSection: (section: string) => void;
+  darkMode?: boolean;
 }
 
-const About: React.FC<AboutProps> = ({ setActiveSection }) => {
+const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => {
   const [ref, inView] = useInView({
     threshold: 0.3,
     onChange: (inView) => {
@@ -49,13 +49,13 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
           spans.forEach((span, index) => {
             if (index <= currentIndex) {
               gsap.to(span, {
-                color: '#ffffff',
+                color: darkMode ? '#ffffff' : '#000000',
                 duration: 0.2,
                 ease: "power2.out"
               });
             } else {
               gsap.to(span, {
-                color: '#6b7280',
+                color: darkMode ? '#6b7280' : '#374151',
                 duration: 0.2,
                 ease: "power2.out"
               });
@@ -69,7 +69,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
       ctx.revert();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, []);
+  }, [darkMode]);
 
   return (
     <section id="about" ref={ref} className="py-20 relative overflow-hidden">
@@ -89,7 +89,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto" ref={containerRef}>
+        <div className="max-w-4xl mx-auto pt-20" ref={containerRef}>
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-gray-700 min-h-[60vh] flex items-center">
             <motion.div
               initial={{ opacity: 0 }}
@@ -101,7 +101,9 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
               {words.map((word, index) => (
                 <span
                   key={index}
-                  className="inline-block mr-2 text-gray-500 transition-colors duration-200"
+                  className={`inline-block mr-2 transition-colors duration-200 ${
+                    darkMode ? 'text-gray-500' : 'text-gray-700'
+                  }`}
                 >
                   {word}
                 </span>
