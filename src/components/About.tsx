@@ -203,7 +203,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
