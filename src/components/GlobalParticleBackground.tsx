@@ -64,7 +64,7 @@ const GlobalParticleBackground: React.FC = () => {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800,
         },
         value: 80,
       },
@@ -95,7 +95,7 @@ const GlobalParticleBackground: React.FC = () => {
     <Particles
       id="tsparticles"
       options={options}
-      particlesInit={particlesInit}
+      init={particlesInit}
       className="fixed inset-0 pointer-events-none z-0"
     />
   );
