@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -80,49 +81,65 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
     <section id="about" ref={ref} className="py-20 relative overflow-hidden min-h-screen">
       <div className="absolute inset-0 bg-black" />
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
-              About Me
-            </span>
-          </h2>
-        </motion.div>
-
-        <div className="pt-12">
-          <div className="max-w-4xl mx-auto" ref={containerRef}>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              whileHover={{ scale: 1.02 }}
-              className="bg-black backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg shadow-pink-500/20 border border-purple-600 min-h-[60vh] flex items-center hover:shadow-pink-500/40 transition-all duration-300"
+      <div className="max-w-6xl mx-auto px-6 lg:px-20 relative z-10">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16 py-20">
+          {/* Left Column */}
+          <div className="flex flex-col items-center lg:items-start">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-5xl font-bold text-purple-600 mb-6 lg:mb-8"
             >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-lg md:text-xl leading-relaxed"
-                ref={textRef}
-              >
-                {words.map((word, index) => (
-                  <span
-                    key={index}
-                    className="inline-block mr-2 transition-colors duration-500 text-slate-400"
-                  >
-                    {word}
-                  </span>
-                ))}
-              </motion.div>
+              About Me
+            </motion.h2>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-40 h-40 lg:w-48 lg:h-48 rounded-full bg-purple-800 flex items-center justify-center p-2"
+            >
+              <img 
+                src="/bitmoji.png" 
+                alt="Avatar" 
+                className="w-full h-full rounded-full object-cover" 
+              />
             </motion.div>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex-1">
+            <div ref={containerRef}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                whileHover={{ scale: 1.02 }}
+                className="bg-white dark:bg-black rounded-2xl p-8 shadow-lg relative overflow-hidden min-h-[60vh] flex items-center hover:shadow-pink-500/40 transition-all duration-300"
+              >
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={inView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="text-lg md:text-xl leading-relaxed"
+                  ref={textRef}
+                >
+                  {words.map((word, index) => (
+                    <span
+                      key={index}
+                      className="inline-block mr-2 transition-colors duration-500 text-slate-400"
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </motion.div>
+              </motion.div>
+            </div>
           </div>
         </div>
 
+        {/* Stats Section */}
         <motion.div
           ref={statsRef}
           initial={{ opacity: 0, y: 30 }}
@@ -154,6 +171,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
           ))}
         </motion.div>
 
+        {/* Achievements Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
