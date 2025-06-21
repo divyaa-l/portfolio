@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -59,19 +60,19 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
       icon: Github,
       label: 'GitHub',
       url: 'https://github.com/lssdivya',
-      color: 'from-purple-600 to-pink-500',
+      color: 'from-purple-600 to-purple-500',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       url: 'https://www.linkedin.com/in/divyaa-l',
-      color: 'from-purple-600 to-pink-500',
+      color: 'from-purple-600 to-purple-500',
     },
     {
       icon: Mail,
       label: 'Email',
       url: 'mailto:Lss.divya27@gmail.com',
-      color: 'from-purple-600 to-pink-500',
+      color: 'from-purple-600 to-purple-500',
     },
   ];
 
@@ -88,7 +89,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-br from-purple-600 to-purple-500 bg-clip-text text-transparent">
-              Let's Connect
+              Want to work together on building some cool stuff?
             </span>
           </h2>
         </motion.div>
@@ -99,9 +100,9 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             whileHover={{ scale: 1.02 }}
-            className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-pink-500/40 transition-all duration-300"
+            className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-purple-500/20 border border-purple-600 hover:shadow-purple-500/40 transition-all duration-300"
           >
-            <h3 className="text-2xl font-bold mb-6 text-pink-500">
+            <h3 className="text-2xl font-bold mb-6 text-purple-500">
               Send me a message
             </h3>
             
@@ -117,7 +118,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 placeholder-slate-400"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 placeholder-slate-400"
                   placeholder="Your name"
                 />
               </div>
@@ -133,7 +134,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 placeholder-slate-400"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 placeholder-slate-400"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -149,7 +150,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors duration-200 resize-none placeholder-slate-400"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-purple-600 bg-black text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 resize-none placeholder-slate-400"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
@@ -159,7 +160,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-pink-500 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-pink-500/40 transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-500 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-purple-500/40 transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <motion.div
@@ -209,9 +210,9 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
           >
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-pink-500/20 border border-purple-600 hover:shadow-pink-500/40 transition-all duration-300"
+              className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-purple-500/20 border border-purple-600 hover:shadow-purple-500/40 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold mb-6 text-pink-500">
+              <h3 className="text-2xl font-bold mb-6 text-purple-500">
                 Connect with me
               </h3>
               
@@ -226,13 +227,23 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                     whileHover={{ scale: 1.05, x: 10 }}
-                    className="flex items-center gap-4 p-4 rounded-lg bg-pink-500 text-white shadow-md hover:shadow-lg hover:shadow-pink-500/40 transition-all duration-200"
+                    className="flex items-center gap-4 p-4 rounded-lg bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-md hover:shadow-lg hover:shadow-purple-500/40 transition-all duration-200"
                   >
                     <link.icon size={24} />
                     <span className="font-semibold">{link.label}</span>
                   </motion.a>
                 ))}
               </div>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-purple-500/20 border border-purple-600 hover:shadow-purple-500/40 transition-all duration-300"
+            >
+              <h4 className="text-lg font-bold mb-4 text-purple-300">Let's discuss!</h4>
+              <p className="text-gray-300 mb-4">
+                Don't like forms? Send me an <span className="text-purple-400 font-semibold">email</span>. 👋
+              </p>
             </motion.div>
           </motion.div>
         </div>
