@@ -2,14 +2,14 @@
 import React, { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
-import type { Engine, ISourceOptions } from '@tsparticles/engine';
+import type { Engine } from 'tsparticles-slim';
 
 const GlobalParticleBackground: React.FC = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  const options: ISourceOptions = {
+  const options = {
     background: {
       color: {
         value: 'transparent',
@@ -64,7 +64,7 @@ const GlobalParticleBackground: React.FC = () => {
       number: {
         density: {
           enable: true,
-          area: 800,
+          value_area: 800,
         },
         value: 80,
       },
