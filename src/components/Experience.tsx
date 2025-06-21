@@ -24,7 +24,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
       company: 'University of North Carolina at Charlotte',
       period: 'Feb 2024 – Dec 2024',
       location: 'Charlotte, NC',
-      description: 'Led full-stack development and data engineering initiatives for university systems.',
+      description: 'Led comprehensive data engineering and full-stack development initiatives for university systems, focusing on scalable solutions and user experience. Architected enterprise-grade data pipelines processing terabytes of information while maintaining 99.9% reliability. Delivered end-to-end solutions from data ingestion to interactive dashboards, significantly improving operational efficiency and decision-making capabilities across multiple departments.',
       details: [
         'Built scalable full-stack applications serving 10K+ users with responsive dashboards',
         'Developed robust ETL pipelines processing multi-terabyte datasets with 99.9% reliability',
@@ -38,7 +38,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
       company: 'FireEye',
       period: 'Sep 2024 – Dec 2024',
       location: 'Charlotte, NC',
-      description: 'Built modern data solutions for security analytics with optimized performance.',
+      description: 'Developed cutting-edge data solutions for cybersecurity analytics, focusing on high-performance data processing and intuitive user interfaces. Built modern ETL frameworks that significantly reduced development time while improving data quality and processing speed. Created full-stack applications that transformed complex security data into actionable insights for operations teams.',
       details: [
         'Developed scalable data solutions using Python, Java, and JavaScript',
         'Implemented ETL frameworks reducing development time by 70%',
@@ -52,7 +52,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
       company: 'Bank of America',
       period: 'May 2024 – Jul 2024',
       location: 'Charlotte, NC',
-      description: 'Designed enterprise-grade ETL pipelines for financial data processing.',
+      description: 'Designed and implemented enterprise-grade ETL pipelines for critical financial data processing systems, achieving exceptional performance improvements. Developed sophisticated dashboard applications enabling real-time financial analytics and decision-making. Established comprehensive engineering best practices for data integrity, automated testing, and performance optimization across the organization.',
       details: [
         'Built ETL pipelines achieving 85% improvement in query performance',
         'Developed dashboard applications enabling real-time financial analytics',
@@ -66,7 +66,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
       company: 'Tata Consultancy Services',
       period: 'Jul 2021 – Jul 2023',
       location: 'Chennai, India',
-      description: 'Designed cloud-native data platforms supporting 200+ stakeholders.',
+      description: 'Architected and deployed large-scale cloud-native data platforms supporting enterprise operations for 200+ stakeholders across multiple business units. Developed sophisticated ETL frameworks orchestrating hundreds of daily data pipelines with exceptional reliability. Led cross-functional teams to deliver mission-critical projects while mentoring junior engineers and establishing organizational best practices.',
       details: [
         'Built scalable data platforms with unified access to enterprise data',
         'Developed ETL frameworks orchestrating 300+ daily pipelines with 99.9% reliability',
@@ -80,7 +80,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
       company: 'CricClubs (Startup)',
       period: 'Feb 2021 – Jul 2021',
       location: 'Hyderabad, India',
-      description: 'Built comprehensive analytics platform for 500K+ users.',
+      description: 'Built comprehensive analytics platform from ground up for a rapidly growing sports technology startup serving 500K+ active users. Developed high-performance web applications capable of handling massive concurrent user loads while maintaining optimal performance. Implemented automated data processing systems connecting diverse external data sources to provide real-time insights and analytics.',
       details: [
         'Developed analytics platform enabling real-time data processing',
         'Built responsive web applications serving 200K+ concurrent users',
@@ -94,7 +94,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
       company: 'Jawaharlal Nehru Technological University',
       period: 'Jul 2020 – Feb 2021',
       location: 'Hyderabad, India',
-      description: 'Developed innovative data processing solutions for research applications.',
+      description: 'Conducted innovative research in data processing optimization and developed novel frameworks for academic research dataset integration. Implemented advanced optimization strategies that significantly improved query performance across various database systems. Contributed to establishing industry best practices that were adopted in academic coursework and research methodologies.',
       details: [
         'Created configurable frameworks for research dataset integration',
         'Implemented optimization strategies improving query performance by 45%',
@@ -175,7 +175,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                     </motion.div>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                     {exp.description}
                   </p>
                   

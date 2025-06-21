@@ -61,16 +61,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-          >
-            Divya Lanka
-          </motion.div>
-          
-          <div className="hidden md:flex space-x-8">
+        <div className="flex justify-center items-center py-4">
+          <div className="flex space-x-8">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}

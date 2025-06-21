@@ -53,12 +53,12 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-8"
           >
-            <div className="w-48 h-48 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1">
-              <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
+            <div className="w-40 h-40 sm:w-48 sm:h-48 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
                 <img
-                  src="/lovable-uploads/ac242227-0307-4205-b35a-33e19907a782.png"
+                  src="/lovable-uploads/e82a3565-96c0-417b-b56c-59bb148b263b.png"
                   alt="Sai Divya Lanka"
-                  className="w-44 h-44 rounded-full object-cover"
+                  className="w-full h-full rounded-full object-cover object-center"
                 />
               </div>
             </div>
@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
               Sai Divya Lanka
@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
           >
             Bridging Data Engineering, Data Science, and Software Development to deliver{' '}
             <span className="text-purple-600 dark:text-purple-400 font-semibold">

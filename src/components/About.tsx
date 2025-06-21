@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -21,23 +20,35 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
 
   const words = aboutText.split(' ');
   const [highlightedWords, setHighlightedWords] = useState(0);
-  const [isScrollLocked, setIsScrollLocked] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInTextSection, setIsInTextSection] = useState(false);
 
   useEffect(() => {
     if (!inView) return;
 
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleWheel = (e: WheelEvent) => {
-      if (!isScrollLocked) return;
+      if (!isInTextSection) return;
 
       e.preventDefault();
       
-      if (e.deltaY > 0) {
-        // Scrolling down - highlight next word
-        setHighlightedWords(prev => Math.min(prev + 1, words.length));
-      } else {
-        // Scrolling up - unhighlight previous word
-        setHighlightedWords(prev => Math.max(prev - 1, 0));
+      clearTimeout(scrollTimeout);
+      
+      if (e.deltaY > 0 && highlightedWords < words.length) {
+        // Scrolling down - highlight next words
+        setHighlightedWords(prev => Math.min(prev + 3, words.length));
+      } else if (e.deltaY < 0 && highlightedWords > 0) {
+        // Scrolling up - unhighlight previous words
+        setHighlightedWords(prev => Math.max(prev - 3, 0));
+      }
+
+      // Auto-continue if we reach the end
+      if (highlightedWords >= words.length) {
+        scrollTimeout = setTimeout(() => {
+          setIsInTextSection(false);
+          document.body.style.overflow = 'auto';
+        }, 1000);
       }
     };
 
@@ -45,13 +56,16 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
-      const isInViewport = rect.top <= 0 && rect.bottom >= window.innerHeight;
+      const windowHeight = window.innerHeight;
       
-      if (isInViewport && highlightedWords < words.length) {
-        setIsScrollLocked(true);
+      // Check if we're in the middle part of the about section
+      const isInMiddle = rect.top <= 0 && rect.bottom >= windowHeight;
+      
+      if (isInMiddle && highlightedWords < words.length && !isInTextSection) {
+        setIsInTextSection(true);
         document.body.style.overflow = 'hidden';
-      } else if (highlightedWords >= words.length) {
-        setIsScrollLocked(false);
+      } else if (!isInMiddle && isInTextSection) {
+        setIsInTextSection(false);
         document.body.style.overflow = 'auto';
       }
     };
@@ -59,12 +73,26 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
     window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('scroll', handleScroll);
 
+    // Start highlighting words when in view
+    if (inView && highlightedWords === 0) {
+      const interval = setInterval(() => {
+        setHighlightedWords(prev => {
+          if (prev >= words.length) {
+            clearInterval(interval);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 100);
+    }
+
     return () => {
       window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('scroll', handleScroll);
       document.body.style.overflow = 'auto';
+      clearTimeout(scrollTimeout);
     };
-  }, [inView, isScrollLocked, highlightedWords, words.length]);
+  }, [inView, isInTextSection, highlightedWords, words.length]);
 
   return (
     <section id="about" ref={ref} className="py-20 relative overflow-hidden">
@@ -85,7 +113,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
         </motion.div>
 
         <div className="max-w-4xl mx-auto" ref={sectionRef}>
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-gray-700 min-h-[50vh] flex items-center">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-gray-700 min-h-[60vh] flex items-center">
             <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
@@ -95,11 +123,14 @@ const About: React.FC<AboutProps> = ({ setActiveSection }) => {
               {words.map((word, index) => (
                 <motion.span
                   key={index}
-                  className={`inline-block mr-2 transition-colors duration-200 ${
+                  className={`inline-block mr-2 transition-all duration-300 ${
                     index < highlightedWords 
-                      ? 'text-gray-900 dark:text-white' 
+                      ? 'text-gray-900 dark:text-white font-medium' 
                       : 'text-gray-400 dark:text-gray-600'
                   }`}
+                  style={{
+                    textShadow: index < highlightedWords ? '0 0 8px rgba(139, 92, 246, 0.3)' : 'none'
+                  }}
                 >
                   {word}
                 </motion.span>
