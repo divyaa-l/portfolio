@@ -2,10 +2,9 @@
 import React, { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
-import type { Engine } from 'tsparticles-slim';
 
 const GlobalParticleBackground: React.FC = () => {
-  const particlesInit = useCallback(async (engine: Engine) => {
+  const particlesInit = useCallback(async (engine: any) => {
     await loadSlim(engine);
   }, []);
 
@@ -26,9 +25,7 @@ const GlobalParticleBackground: React.FC = () => {
           enable: true,
           mode: 'repulse',
         },
-        resize: {
-          enable: true,
-        },
+        resize: true,
       },
       modes: {
         push: {
@@ -64,7 +61,7 @@ const GlobalParticleBackground: React.FC = () => {
       number: {
         density: {
           enable: true,
-          value_area: 800,
+          area: 800,
         },
         value: 80,
       },
