@@ -23,7 +23,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
       details: 'Enhanced prediction accuracy by 20% using LSTM neural networks',
       github: '#',
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&h=400',
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
       tech: ['Python', 'TensorFlow', 'LSTM', 'Cybersecurity'],
     },
     {
@@ -48,7 +48,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
 
   return (
     <section id="projects" ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-purple-800" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -58,7 +58,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
@@ -72,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="group bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border-2 border-[#06B6D4] hover:shadow-2xl transition-all duration-300"
+              className="group bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border border-pink-500 hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative overflow-hidden">
                 <img

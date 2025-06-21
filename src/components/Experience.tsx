@@ -35,7 +35,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
         'Created comprehensive analytics solutions generating actionable business insights',
         'Delivered 15+ data engineering projects improving operational efficiency by 75%',
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
     },
     {
       title: 'Data Engineer Intern - Solutions Development',
@@ -54,7 +54,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
         'Built full-stack applications providing intuitive interfaces for complex data analysis',
         'Created dashboards and reports for security operations teams',
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
     },
     {
       title: 'Data Engineer Intern - Enterprise Solutions',
@@ -73,7 +73,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
         'Optimized SQL queries improving system efficiency by 90%',
         'Established engineering best practices for data integrity and testing',
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
     },
     {
       title: 'Data Engineer',
@@ -92,7 +92,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
         'Created interactive dashboards improving analyst productivity by 40%',
         'Led delivery of 20+ projects and mentored team of 6 engineers',
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
     },
     {
       title: 'Data Engineer',
@@ -111,7 +111,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
         'Implemented automated ETL pipelines connecting 20+ external data sources',
         'Created custom dashboards translating complex analytics into business insights',
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
     },
     {
       title: 'Research Assistant - Data Engineering Lab',
@@ -130,7 +130,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
         'Researched novel approaches to data pipeline design',
         'Established best practices adopted in academic coursework',
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
     },
   ];
 
@@ -140,7 +140,7 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
 
   return (
     <section id="experience" ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-purple-800" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -150,14 +150,14 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Work Experiences
             </span>
           </h2>
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#7C3AED] to-[#DB2777] hidden md:block" />
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500 hidden md:block" />
           
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -168,11 +168,11 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className={`relative ${index % 2 === 0 ? 'md:ml-20' : 'md:ml-20 md:pl-8'}`}
               >
-                <div className="absolute -left-12 top-6 w-4 h-4 bg-gradient-to-r from-[#7C3AED] to-[#DB2777] rounded-full hidden md:block" />
+                <div className="absolute -left-12 top-6 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hidden md:block" />
                 
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-[#06B6D4] hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  className="bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-pink-500 hover:shadow-2xl transition-all duration-300 cursor-pointer"
                   onClick={() => toggleCard(index)}
                 >
                   <div className="flex justify-between items-start mb-4">
@@ -180,10 +180,10 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                       <h3 className="text-xl font-bold text-white mb-2">
                         {exp.title}
                       </h3>
-                      <div className="text-lg font-semibold text-[#06B6D4] mb-2">
+                      <div className="text-lg font-semibold text-pink-400 mb-2">
                         {exp.company}
                       </div>
-                      <div className="flex flex-wrap gap-4 text-sm text-[#94A3B8]">
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-300">
                         <div className="flex items-center gap-1">
                           <Calendar size={14} />
                           {exp.period}
@@ -197,16 +197,16 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                     <motion.div
                       animate={{ rotate: expandedCard === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-[#06B6D4]"
+                      className="text-pink-400"
                     >
                       {expandedCard === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </motion.div>
                   </div>
                   
-                  <ul className="space-y-2 text-[#94A3B8]">
+                  <ul className="space-y-2 text-gray-300">
                     {exp.description.map((point, pointIndex) => (
                       <li key={pointIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#06B6D4] rounded-full mt-2 flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 bg-pink-400 rounded-full mt-2 flex-shrink-0" />
                         {point}
                       </li>
                     ))}
@@ -221,16 +221,16 @@ const Experience: React.FC<ExperienceProps> = ({ setActiveSection }) => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <ul className="space-y-2 mt-4 pt-4 border-t border-[#06B6D4]">
+                        <ul className="space-y-2 mt-4 pt-4 border-t border-pink-500">
                           {exp.details.map((detail, detailIndex) => (
                             <motion.li
                               key={detailIndex}
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: detailIndex * 0.1 }}
-                              className="flex items-start gap-2 text-[#94A3B8]"
+                              className="flex items-start gap-2 text-gray-300"
                             >
-                              <div className="w-1.5 h-1.5 bg-[#06B6D4] rounded-full mt-2 flex-shrink-0" />
+                              <div className="w-1.5 h-1.5 bg-pink-400 rounded-full mt-2 flex-shrink-0" />
                               {detail}
                             </motion.li>
                           ))}

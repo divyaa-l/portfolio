@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -78,7 +77,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
 
   return (
     <section id="contact" ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-purple-800" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -88,7 +87,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
@@ -99,7 +98,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-[#06B6D4]"
+            className="bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-pink-500"
           >
             <h3 className="text-2xl font-bold mb-6 text-white">
               Send me a message
@@ -207,7 +206,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-[#06B6D4]">
+            <div className="bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-pink-500">
               <h3 className="text-2xl font-bold mb-6 text-white">
                 Connect with me
               </h3>

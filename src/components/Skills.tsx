@@ -54,7 +54,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
         { name: 'HTML5', icon: FaHtml5 },
         { name: 'CSS3', icon: FaCss3Alt }
       ],
-      gradient: 'from-[#5B21B6] to-[#DB2777]',
+      gradient: 'from-purple-600 to-pink-500',
       headerIcon: FaReact,
     },
     {
@@ -111,7 +111,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
 
   return (
     <section id="skills" ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-purple-800" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -121,7 +121,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Skills & Technologies
             </span>
           </h2>
@@ -135,9 +135,9 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: groupIndex * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-[#06B6D4] hover:shadow-2xl transition-all duration-300"
+              className="bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-pink-500 hover:shadow-2xl transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-[#06B6D4] rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center mb-4">
                 <group.headerIcon className="w-6 h-6 text-white" />
               </div>
               
@@ -153,7 +153,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: (groupIndex * 0.1) + (index * 0.05) }}
                     whileHover={{ scale: 1.1 }}
-                    className="px-3 py-2 bg-[#06B6D4] text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
+                    className="px-3 py-2 bg-pink-500 text-white text-sm rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2"
                   >
                     <skill.icon className="w-4 h-4" />
                     {skill.name}

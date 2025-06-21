@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -6,9 +5,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedCounter from './AnimatedCounter';
 import { Coffee, Award } from 'lucide-react';
-import type { Container, Engine } from "@tsparticles/engine";
-import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +60,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
               });
             } else {
               gsap.to(span, {
-                color: '#94A3B8',
+                color: '#9CA3AF',
                 duration: 0.5,
                 ease: "power2.out"
               });
@@ -82,78 +78,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
 
   return (
     <section id="about" ref={ref} className="py-20 relative overflow-hidden min-h-screen">
-      <Particles
-        id="tsparticles"
-        options={{
-          background: {
-            color: {
-              value: "transparent",
-            },
-          },
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onClick: {
-                enable: false,
-              },
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: {
-                enable: true,
-              },
-            },
-            modes: {
-              repulse: {
-                distance: 100,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: ["#7C3AED", "#DB2777", "#06B6D4"],
-            },
-            links: {
-              color: "#5B21B6",
-              distance: 150,
-              enable: true,
-              opacity: 0.3,
-              width: 1,
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: false,
-              speed: 0.8,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.4,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 4 },
-            },
-          },
-          detectRetina: true,
-        }}
-        className="absolute inset-0"
-      />
-      
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900 to-purple-800" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -163,7 +88,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
@@ -175,7 +100,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border-2 border-[#06B6D4] min-h-[60vh] flex items-center"
+              className="bg-gradient-to-br from-purple-900 to-pink-900 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-pink-500 min-h-[60vh] flex items-center"
             >
               <motion.div
                 initial={{ opacity: 0 }}
@@ -187,7 +112,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
                 {words.map((word, index) => (
                   <span
                     key={index}
-                    className="inline-block mr-2 transition-colors duration-500 text-[#94A3B8]"
+                    className="inline-block mr-2 transition-colors duration-500 text-gray-400"
                   >
                     {word}
                   </span>
