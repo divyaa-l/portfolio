@@ -13,7 +13,7 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import FloatingElements from '../components/FloatingElements';
 import ScrollProgressBar from '../components/ScrollProgressBar';
 
-const Index = () => {
+export default function Index() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
@@ -22,20 +22,20 @@ const Index = () => {
 
   return (
     <>
-      {/* Background animations - render first with negative z-index */}
+      {/* Background layers */}
       <AnimatedBackground />
       <FloatingElements />
-      
-      {/* Main app content */}
-      <motion.div 
-        className="min-h-screen bg-black relative"
+      <ScrollProgressBar />
+
+      {/* Main content */}
+      <motion.div
+        className="min-h-screen bg-black transition-colors duration-300 relative overflow-x-hidden z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <ScrollProgressBar />
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-        
+
         <main className="relative">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -43,18 +43,16 @@ const Index = () => {
             transition={{ duration: 0.8, staggerChildren: 0.2 }}
           >
             <Hero setActiveSection={setActiveSection} />
-            <About setActiveSection={setActiveSection} darkMode={true} />
+            <About setActiveSection={setActiveSection} darkMode />
             <Skills setActiveSection={setActiveSection} />
             <Experience setActiveSection={setActiveSection} />
             <Projects setActiveSection={setActiveSection} />
             <Contact setActiveSection={setActiveSection} />
           </motion.div>
         </main>
-        
+
         <Footer />
       </motion.div>
     </>
   );
-};
-
-export default Index;
+}
