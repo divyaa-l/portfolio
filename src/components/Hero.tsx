@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -103,12 +104,12 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             className="text-lg sm:text-xl md:text-2xl text-purple-200 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
           >
             <span className="text-white">I am a </span>
-            <span className="inline-block h-10 overflow-hidden relative min-w-[250px] align-top">
+            <span className="inline-block h-8 overflow-hidden relative min-w-[280px] align-baseline">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentRoleIndex}
                   initial={{ y: -30, opacity: 0, scale: 0.8 }}
-                  animate={{ y: 0, opacity: 1, scale: 1.2 }}
+                  animate={{ y: 0, opacity: 1, scale: 1 }}
                   exit={{ y: 30, opacity: 0, scale: 0.8 }}
                   transition={{
                     type: 'spring',
@@ -116,7 +117,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                     damping: 20,
                     duration: 0.4
                   }}
-                  className="bg-gradient-to-br from-purple-600 to-pink-500 bg-clip-text text-transparent font-semibold absolute top-0 left-0 whitespace-nowrap"
+                  className="text-white font-semibold absolute top-0 left-0 whitespace-nowrap"
                 >
                   {roles[currentRoleIndex]}
                 </motion.span>
