@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedCounter from './AnimatedCounter';
 import { Coffee, Award } from 'lucide-react';
-import { useCallback } from "react";
 import type { Container, Engine } from "@tsparticles/engine";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -52,7 +51,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
         start: "top center",
         end: "bottom center",
         pin: true,
-        scrub: 2, // Slower scroll effect (was 1)
+        scrub: 4, // Much slower scroll effect for better readability
         onUpdate: (self) => {
           const progress = self.progress;
           const totalWords = spans.length;
@@ -62,13 +61,13 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
             if (index <= currentIndex) {
               gsap.to(span, {
                 color: darkMode ? '#ffffff' : '#000000',
-                duration: 0.3,
+                duration: 0.5,
                 ease: "power2.out"
               });
             } else {
               gsap.to(span, {
-                color: darkMode ? '#6b7280' : '#94a3b8', // Better contrast in light mode
-                duration: 0.3,
+                color: darkMode ? '#6b7280' : '#64748b', // Better contrast in light mode
+                duration: 0.5,
                 ease: "power2.out"
               });
             }
@@ -106,7 +105,9 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
                 enable: true,
                 mode: "repulse",
               },
-              resize: true,
+              resize: {
+                enable: true,
+              },
             },
             modes: {
               repulse: {
@@ -193,8 +194,8 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
                 {words.map((word, index) => (
                   <span
                     key={index}
-                    className={`inline-block mr-2 transition-colors duration-300 ${
-                      darkMode ? 'text-gray-500' : 'text-slate-400'
+                    className={`inline-block mr-2 transition-colors duration-500 ${
+                      darkMode ? 'text-gray-500' : 'text-slate-500'
                     }`}
                   >
                     {word}
