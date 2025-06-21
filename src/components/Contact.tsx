@@ -30,7 +30,6 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS configuration - replace these with your actual service details
       await emailjs.send(
         'your_service_id',
         'your_template_id',
@@ -61,25 +60,25 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
       icon: Github,
       label: 'GitHub',
       url: 'https://github.com/lssdivya',
-      color: 'from-gray-600 to-gray-800',
+      color: 'from-[#5B21B6] to-[#DB2777]',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       url: 'https://www.linkedin.com/in/divyaa-l',
-      color: 'from-blue-600 to-blue-800',
+      color: 'from-[#5B21B6] to-[#DB2777]',
     },
     {
       icon: Mail,
       label: 'Email',
       url: 'mailto:Lss.divya27@gmail.com',
-      color: 'from-purple-600 to-pink-600',
+      color: 'from-[#5B21B6] to-[#DB2777]',
     },
   ];
 
   return (
     <section id="contact" ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-blue-50/50 dark:from-purple-900/10 dark:to-blue-900/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -89,30 +88,26 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Ready to collaborate on your next data-driven project? Let's discuss how we can build something amazing together.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+            className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-[#06B6D4]"
           >
-            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+            <h3 className="text-2xl font-bold mb-6 text-white">
               Send me a message
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-[#94A3B8] mb-2">
                   Name
                 </label>
                 <input
@@ -122,13 +117,13 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#06B6D4] bg-white/10 text-white focus:ring-2 focus:ring-[#06B6D4] focus:border-transparent transition-colors duration-200 placeholder-[#94A3B8]"
                   placeholder="Your name"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-[#94A3B8] mb-2">
                   Email
                 </label>
                 <input
@@ -138,13 +133,13 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#06B6D4] bg-white/10 text-white focus:ring-2 focus:ring-[#06B6D4] focus:border-transparent transition-colors duration-200 placeholder-[#94A3B8]"
                   placeholder="your.email@example.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-[#94A3B8] mb-2">
                   Message
                 </label>
                 <textarea
@@ -154,7 +149,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#06B6D4] bg-white/10 text-white focus:ring-2 focus:ring-[#06B6D4] focus:border-transparent transition-colors duration-200 resize-none placeholder-[#94A3B8]"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
@@ -164,7 +159,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#06B6D4] text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <motion.div
@@ -186,8 +181,8 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                   animate={{ opacity: 1, y: 0 }}
                   className={`flex items-center gap-2 p-4 rounded-lg ${
                     submitStatus === 'success'
-                      ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                      : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                      ? 'bg-green-500/20 text-green-300 border border-green-500'
+                      : 'bg-red-500/20 text-red-300 border border-red-500'
                   }`}
                 >
                   {submitStatus === 'success' ? (
@@ -206,15 +201,14 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
             </form>
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
-              <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+            <div className="bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-[#06B6D4]">
+              <h3 className="text-2xl font-bold mb-6 text-white">
                 Connect with me
               </h3>
               
@@ -229,7 +223,7 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                     whileHover={{ scale: 1.05, x: 10 }}
-                    className={`flex items-center gap-4 p-4 rounded-lg bg-gradient-to-r ${link.color} text-white shadow-md hover:shadow-lg transition-all duration-200`}
+                    className="flex items-center gap-4 p-4 rounded-lg bg-[#06B6D4] text-white shadow-md hover:shadow-lg transition-all duration-200"
                   >
                     <link.icon size={24} />
                     <span className="font-semibold">{link.label}</span>
@@ -237,21 +231,6 @@ const Contact: React.FC<ContactProps> = ({ setActiveSection }) => {
                 ))}
               </div>
             </div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
-            >
-              <h4 className="text-lg font-bold mb-4 text-gray-800 dark:text-white">
-                Let's build something amazing together!
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                Whether you need data engineering solutions, full-stack development, or data science consulting, 
-                I'm here to help turn your ideas into reality.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

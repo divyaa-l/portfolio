@@ -23,7 +23,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
       details: 'Enhanced prediction accuracy by 20% using LSTM neural networks',
       github: '#',
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&h=400',
-      gradient: 'from-slate-500 to-slate-600',
+      gradient: 'from-[#5B21B6] to-[#DB2777]',
       tech: ['Python', 'TensorFlow', 'LSTM', 'Cybersecurity'],
     },
     {
@@ -32,7 +32,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
       details: 'Ensured 95%+ accuracy in icon detection for document automation',
       github: '#',
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&h=400',
-      gradient: 'from-slate-500 to-slate-600',
+      gradient: 'from-[#5B21B6] to-[#DB2777]',
       tech: ['Python', 'OpenCV', 'Computer Vision', 'PDF Processing'],
     },
     {
@@ -41,14 +41,14 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
       details: 'Delivered insights using Python and data visualization libraries',
       github: '#',
       image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&h=400',
-      gradient: 'from-slate-500 to-slate-600',
+      gradient: 'from-[#5B21B6] to-[#DB2777]',
       tech: ['Python', 'Data Analytics', 'Visualization', 'APIs'],
     },
   ];
 
   return (
     <section id="projects" ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 to-slate-900/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23] via-[#1a1a2e] to-[#16213e]" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -58,7 +58,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-300 to-slate-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#7C3AED] to-[#DB2777] bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
@@ -72,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="group bg-gray-800/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl border border-gray-700 hover:shadow-2xl transition-all duration-300"
+              className="group bg-gradient-to-br from-[#5B21B6] to-[#DB2777] backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border-2 border-[#06B6D4] hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -80,7 +80,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`} />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#5B21B6]/30 to-[#DB2777]/30 group-hover:opacity-50 transition-opacity duration-300" />
               </div>
               
               <div className="p-6">
@@ -88,11 +88,11 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-300 mb-3 line-clamp-3">
+                <p className="text-[#94A3B8] mb-3 line-clamp-3">
                   {project.description}
                 </p>
                 
-                <p className={`text-sm font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent mb-4`}>
+                <p className="text-sm font-semibold text-[#06B6D4] mb-4">
                   {project.details}
                 </p>
                 
@@ -100,7 +100,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-md font-medium"
+                      className="px-2 py-1 bg-[#06B6D4] text-white text-xs rounded-md font-medium"
                     >
                       {tech}
                     </span>
@@ -114,7 +114,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${project.gradient} text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-shadow duration-200`}
+                    className="flex items-center gap-2 px-4 py-2 bg-[#06B6D4] text-white rounded-lg font-semibold text-sm hover:shadow-lg transition-shadow duration-200"
                   >
                     <Github size={16} />
                     GitHub
@@ -126,7 +126,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 rounded-lg font-semibold text-sm hover:bg-gray-700 transition-colors duration-200"
+                    className="flex items-center gap-2 px-4 py-2 border-2 border-[#06B6D4] text-[#06B6D4] rounded-lg font-semibold text-sm hover:bg-[#06B6D4] hover:text-white transition-colors duration-200"
                   >
                     <ExternalLink size={16} />
                     Demo
