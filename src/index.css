@@ -1,7 +1,7 @@
 
-/* Force transparent backgrounds to allow canvas visibility */
+/* Set white background to make bright particles visible */
 html, body, #root {
-  background: transparent !important;
+  background: white !important;
 }
 
 @tailwind base;
@@ -105,7 +105,6 @@ html, body, #root {
 
   body {
     @apply text-foreground;
-    /* Removed bg-background to prevent dark background */
   }
 }
 
