@@ -26,13 +26,13 @@ const VantaBirdsBackground: React.FC<VantaBirdsBackgroundProps> = ({ className =
           color1: 0xa855f7,
           color2: 0xec4899,
           colorMode: 'variance',
-          birdSize: 1.00,
-          wingSpan: 20.00,
-          speedLimit: 5.00,
+          birdSize: 2.00,
+          wingSpan: 25.00,
+          speedLimit: 4.00,
           separation: 20.00,
           alignment: 20.00,
           cohesion: 20.00,
-          quantity: 3.00
+          quantity: 8.00
         });
       }).catch(console.error);
     }

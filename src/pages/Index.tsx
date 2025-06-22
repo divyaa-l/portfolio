@@ -17,10 +17,8 @@ export default function Index() {
 
   return (
     <>
-      {/* Vanta Birds background - only for home page */}
-      {activeSection === 'hero' && (
-        <VantaBirdsBackground />
-      )}
+      {/* Vanta Birds background - always show on home page */}
+      <VantaBirdsBackground />
       
       {/* Progress bar */}
       <div className="relative z-50">
