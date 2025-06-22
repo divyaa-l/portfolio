@@ -9,6 +9,7 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import VantaBirdsBackground from '../components/VantaBirdsBackground';
 import ScrollProgressBar from '../components/ScrollProgressBar';
 
 export default function Index() {
@@ -16,6 +17,11 @@ export default function Index() {
 
   return (
     <>
+      {/* Vanta Birds background - only for home page */}
+      {activeSection === 'hero' && (
+        <VantaBirdsBackground />
+      )}
+      
       {/* Progress bar */}
       <div className="relative z-50">
         <ScrollProgressBar />
