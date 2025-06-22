@@ -11,6 +11,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
 import FloatingElements from '../components/FloatingElements';
+import VantaNetBackground from '../components/VantaNetBackground';
 import ScrollProgressBar from '../components/ScrollProgressBar';
 
 export default function Index() {
@@ -20,8 +21,14 @@ export default function Index() {
     <>
       {/* Background layers - lowest z-index */}
       <div className="fixed inset-0 z-0">
-        <AnimatedBackground />
-        <FloatingElements />
+        {activeSection === 'hero' ? (
+          <>
+            <AnimatedBackground />
+            <FloatingElements />
+          </>
+        ) : (
+          <VantaNetBackground />
+        )}
       </div>
       
       {/* Progress bar */}
