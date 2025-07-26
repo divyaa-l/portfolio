@@ -1,12 +1,12 @@
 
-/* Force white background everywhere to make bright particles visible */
+/* Allow animated backgrounds to show through */
 html, body, #root {
-  background: white !important;
+  background: transparent !important;
 }
 
 /* Override any dark theme backgrounds */
 .dark html, .dark body, .dark #root {
-  background: #111827 !important;
+  background: transparent !important;
 }
 
 @tailwind base;
@@ -111,11 +111,11 @@ html, body, #root {
 
   body {
     @apply text-foreground;
-    background: white !important;
+    background: transparent !important;
   }
 
   .dark body {
-    background: #111827 !important;
+    background: transparent !important;
   }
 }
 

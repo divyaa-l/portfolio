@@ -82,7 +82,7 @@ export default function Achievements({ setActiveSection }: AchievementsProps) {
     <section 
       id="achievements" 
       ref={ref}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-cyan-50"
+      className="py-20 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         {/* Stats Section */}
@@ -95,7 +95,7 @@ export default function Achievements({ setActiveSection }: AchievementsProps) {
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-cyan-100"
+              className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-cyan-100/30"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -151,7 +151,7 @@ export default function Achievements({ setActiveSection }: AchievementsProps) {
           {keyAchievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-cyan-100 text-center"
+              className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-cyan-100/30 text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}

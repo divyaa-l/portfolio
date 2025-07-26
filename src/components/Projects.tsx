@@ -72,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
   ];
 
   return (
-    <section id="projects" ref={ref} className="py-20 relative overflow-hidden bg-white">
+    <section id="projects" ref={ref} className="py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -98,7 +98,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              className="group bg-white backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20 border border-gray-200 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 cursor-pointer"
+              className="group bg-black/20 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20 border border-gray-200/30 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 cursor-pointer"
             >
               <div className="relative overflow-hidden">
                 <img

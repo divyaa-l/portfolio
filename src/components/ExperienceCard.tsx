@@ -31,7 +31,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       {/* Timeline dot */}
       <div className="absolute -left-6 top-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full border-4 border-gray-50 hidden md:block" />
       
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-xl shadow-blue-500/20">
+      <div className="bg-black/20 p-6 rounded-xl border border-gray-200/30 shadow-xl shadow-blue-500/20">
         <div className="flex justify-between items-start">
           <div className="flex-1">
             <h3 className="text-xl font-bold mb-2 text-gray-800">

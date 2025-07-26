@@ -40,7 +40,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
   }, []);
 
   return (
-    <section id="about" ref={ref} className="min-h-screen bg-white py-20">
+    <section id="about" ref={ref} className="min-h-screen py-20">
       <div className="max-w-6xl mx-auto px-6 lg:px-20">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
           {/* Left Column */}
@@ -105,7 +105,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className="text-center bg-white backdrop-blur-sm rounded-2xl p-6 border border-blue-200 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
+              className="text-center bg-black/20 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/30 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
             >
               <div className="text-3xl md:text-4xl font-bold text-cyan-500 mb-2 flex items-center justify-center gap-2">
                 <AnimatedCounter end={stat.end} suffix={stat.suffix} isInView={statsInView} />
@@ -141,7 +141,7 @@ const About: React.FC<AboutProps> = ({ setActiveSection, darkMode = false }) => 
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-2xl p-6 border border-blue-200 text-center shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
+                className="bg-black/20 rounded-2xl p-6 border border-blue-200/30 text-center shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award size={24} className="text-white" />

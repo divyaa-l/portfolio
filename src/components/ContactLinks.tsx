@@ -39,7 +39,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ inView }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="bg-white backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-blue-500/20 border border-gray-200 hover:shadow-blue-500/40 transition-all duration-300"
+      className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-blue-500/20 border border-gray-200/30 hover:shadow-blue-500/40 transition-all duration-300"
     >
       <h3 className="text-2xl font-bold mb-6">
         <span className="bg-gradient-to-br from-blue-500 to-cyan-400 bg-clip-text text-transparent">

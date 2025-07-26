@@ -58,7 +58,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
   ];
 
   return (
-    <section id="hero" ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-32 bg-gray-900">
+    <section id="hero" ref={ref} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-32">
       {/* Animated gradient overlay - now more visible on light background */}
       <motion.div 
         className="absolute inset-0 bg-gradient-to-br from-blue-200/30 via-transparent to-cyan-200/30"

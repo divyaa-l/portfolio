@@ -54,7 +54,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-lg'
+          ? 'bg-black/20 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >

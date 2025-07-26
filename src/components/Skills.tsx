@@ -110,7 +110,7 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
   ];
 
   return (
-    <section id="skills" ref={ref} className="py-20 relative overflow-hidden bg-gray-50">
+    <section id="skills" ref={ref} className="py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -133,13 +133,13 @@ const Skills: React.FC<SkillsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: groupIndex * 0.1 }}
               whileHover={{ y: -5, scale: 1.05 }}
-              className="bg-white backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-blue-500/20 border border-gray-200 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300"
+              className="bg-black/20 backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-blue-500/20 border border-gray-200/30 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-lg flex items-center justify-center mb-4">
                 <group.headerIcon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold mb-4 text-gray-800">
+              <h3 className="text-xl font-bold mb-4 text-white">
                 {group.title}
               </h3>
               

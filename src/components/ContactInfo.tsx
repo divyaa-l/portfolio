@@ -6,7 +6,7 @@ const ContactInfo: React.FC = () => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="bg-white backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-purple-500/20 border border-gray-200 hover:shadow-purple-500/40 transition-all duration-300"
+      className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg shadow-purple-500/20 border border-gray-200/30 hover:shadow-purple-500/40 transition-all duration-300"
     >
       <h4 className="text-lg font-bold mb-4">
         <span className="bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">
