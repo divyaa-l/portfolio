@@ -44,7 +44,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
     },
     {
       title: 'Clinical Decision Making and Pattern Recognition',
-      description: 'Built an intelligent Streamlit application empowering healthcare professionals to visualize complex patient data, uncover hidden patterns, and make faster, data-driven clinical decisions.',
+      description: 'Built an intelligent Streamlit app for healthcare professionals to visualize complex patient data, uncover patterns, and make data-driven clinical decisions. The tool delivers interactive, real-time visualizations that simplify diagnosis and support evidence-based treatment planning.',
       details: 'Healthcare data visualization and pattern recognition system',
       github: 'https://github.com/lssdivya/Clinical_Decision_Making_and_Pattern_Recognition',
       image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&h=400',
