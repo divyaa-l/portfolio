@@ -47,7 +47,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
       description: 'Built an intelligent Streamlit application empowering healthcare professionals to visualize complex patient data, uncover hidden patterns, and make faster, data-driven clinical decisions.',
       details: 'Healthcare data visualization and pattern recognition system',
       github: 'https://github.com/lssdivya/Clinical_Decision_Making_and_Pattern_Recognition',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=600&h=400',
+      image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&h=400',
       gradient: 'from-blue-600 to-cyan-500',
       tech: ['Python', 'Streamlit', 'Healthcare Analytics', 'Data Visualization'],
     },
