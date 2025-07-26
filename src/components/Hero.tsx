@@ -18,6 +18,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
   });
 
   const roles = [
+    'Developer',
     'Data Scientist',
     'Data Engineer', 
     'Software Developer',
@@ -123,10 +124,10 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed px-4"
           >
             <div className="flex items-center justify-center">
-              <span className="text-gray-800">I am a </span>
+              <span className="text-gray-300">I'm a </span>
               <div className="relative ml-2 flex items-center">
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -140,7 +141,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                       damping: 20,
                       duration: 0.4
                     }}
-                    className="text-gray-800 font-semibold whitespace-nowrap bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
+                    className="text-gray-300 font-semibold whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
                   >
                     {roles[currentRoleIndex]}
                   </motion.span>
@@ -165,9 +166,10 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.8 + index * 0.1 }}
                 whileHover={{ 
-                  scale: 1.3, 
-                  rotate: 10,
-                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.5)"
+                  scale: 1.2, 
+                  rotate: 5,
+                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.6)",
+                  backgroundColor: "rgba(59, 130, 246, 0.9)"
                 }}
                 whileTap={{ scale: 0.9 }}
                 className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-blue-500/50 transition-all duration-300"
@@ -192,26 +194,36 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex gap-4 justify-center mb-16"
           >
-            <Button 
+            <motion.button
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 15px 30px rgba(6, 182, 212, 0.4)",
+                backgroundColor: "rgba(6, 182, 212, 0.9)"
+              }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setActiveSection('contact')}
-              size="lg"
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white border-0 px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white border-0 px-8 py-3 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300"
             >
               Let's Connect
-            </Button>
-            <Button 
+            </motion.button>
+            <motion.button 
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 15px 30px rgba(6, 182, 212, 0.3)",
+                borderColor: "rgba(6, 182, 212, 0.8)",
+                backgroundColor: "rgba(6, 182, 212, 0.1)"
+              }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/resume.pdf'; // You'll need to add your resume PDF to the public folder
+                link.href = '/resume.pdf';
                 link.download = 'Sai_Divya_Lanka_Resume.pdf';
                 link.click();
               }}
-              variant="outline"
-              size="lg"
-              className="border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-500 hover:text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 text-lg font-semibold rounded-lg shadow-lg transition-all duration-300"
             >
               Download Resume
-            </Button>
+            </motion.button>
           </motion.div>
 
           <motion.div
