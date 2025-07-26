@@ -60,6 +60,15 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
       gradient: 'from-blue-600 to-cyan-500',
       tech: ['Python', 'Streamlit', 'NLP', 'Resume Analysis'],
     },
+    {
+      title: 'Computer-Vision-Icon-Matching',
+      description: 'The Computer Vision Icon Matching project processes PDFs (Schedule and Room Plan) to identify and count matching icons using computer vision techniques. It leverages OpenCV for contour detection, preprocessing, and template matching, ensuring efficient and accurate visual component identification and analysis for document automation tasks.',
+      details: 'PDF document automation with computer vision and template matching',
+      github: 'https://github.com/lssdivya/Computer-Vision-Icon-Matching',
+      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&h=400',
+      gradient: 'from-blue-600 to-cyan-500',
+      tech: ['Python', 'OpenCV', 'Computer Vision', 'PDF Processing', 'Template Matching'],
+    },
   ];
 
   return (
