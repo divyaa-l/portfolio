@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { SiHuggingface } from 'react-icons/si';
 import { Button } from './ui/button';
 
 interface HeroProps {
@@ -18,8 +19,7 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
   });
 
   const roles = [
-    'Developer',
-    'Data Scientist'
+    'Developer'
   ];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -49,6 +49,11 @@ const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
       icon: Linkedin,
       url: 'https://www.linkedin.com/in/divyaa-l',
       label: 'LinkedIn',
+    },
+    {
+      icon: SiHuggingface,
+      url: 'https://huggingface.co/divya-ls',
+      label: 'Hugging Face',
     },
     {
       icon: Mail,
