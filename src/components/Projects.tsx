@@ -116,7 +116,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10, scale: 1.05 }}
-              className="group bg-black/20 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20 border border-gray-200/30 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 cursor-pointer"
+              className="group bg-slate-900/90 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg shadow-blue-500/20 border border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 cursor-pointer"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -128,7 +128,7 @@ const Projects: React.FC<ProjectsProps> = ({ setActiveSection }) => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-blue-600 mb-3">
+                <h3 className="text-xl font-bold text-cyan-400 mb-3">
                   {project.title}
                 </h3>
                 
