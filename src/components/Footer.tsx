@@ -7,17 +7,17 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Github,
-      url: 'https://github.com/lssdivya',
+      url: 'https://github.com/divyaa-l',
       label: 'GitHub',
     },
     {
       icon: Linkedin,
-      url: 'https://www.linkedin.com/in/divyaa-l',
+      url: 'https://www.linkedin.com/in/divyaaal/',
       label: 'LinkedIn',
     },
     {
       icon: Mail,
-      url: 'mailto:Lss.divya27@gmail.com',
+      url: 'mailto:Lss.divya23@gmail.com',
       label: 'Email',
     },
   ];
