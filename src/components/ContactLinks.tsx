@@ -19,19 +19,19 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ inView }) => {
     {
       icon: Github,
       label: 'GitHub',
-      url: 'https://github.com/lssdivya',
+      url: 'https://github.com/divyaa-l',
       color: 'from-blue-600 to-blue-500',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/divyaa-l',
+      url: 'https://www.linkedin.com/in/divyaaal',
       color: 'from-blue-600 to-blue-500',
     },
     {
       icon: Mail,
       label: 'Email',
-      url: 'mailto:Lss.divya27@gmail.com',
+      url: 'mailto:Lss.divya23@gmail.com',
       color: 'from-blue-600 to-blue-500',
     },
   ];
